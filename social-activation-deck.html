@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Group DTX - Social Activations for Festivals &amp; Conferences</title>
+<meta name="description" content="The Group DTX creates social activations that transform festivals and conferences into deeply connected experiences. Based in Dallas, TX." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font:inherit}
+
+/* ── TOKENS ── */
+:root{
+  --bg:          hsl(0 0% 5%);
+  --card:        hsl(0 0% 8%);
+  --muted:       hsl(0 0% 14%);
+  --border:      hsl(0 0% 18%);
+  --fg:          hsl(40 33% 95%);
+  --fg-muted:    hsl(40 10% 60%);
+  --primary:     hsl(43 40% 56%);
+  --primary-fg:  hsl(0 0% 5%);
+  --green:       hsl(150 32% 30%);
+  --green-dark:  hsl(150 32% 20%);
+  --radius:      0.5rem;
+}
+
+/* ── PROGRESS BAR ── */
+#progressBar{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg,hsl(43 40% 46%),hsl(43 50% 70%),hsl(43 40% 56%));
+  z-index:1000;
+  transition:width .08s linear;
+  box-shadow:0 0 8px hsl(43 40% 56% / .5);
+}
+
+/* ── BASE ── */
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── SCROLL SNAP CONTAINER ── */
+.snap-container{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+}
+
+/* ── SECTION BASE ── */
+.snap-section{
+  scroll-snap-align:start;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 24px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── INNER WIDTHS ── */
+.inner{width:100%;max-width:1200px;margin:0 auto}
+.inner-sm{width:100%;max-width:800px;margin:0 auto;text-align:center}
+.inner-xs{width:100%;max-width:600px;margin:0 auto;text-align:center}
+
+/* ── TYPOGRAPHY ── */
+.display{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(56px,9vw,120px);
+  font-weight:900;
+  line-height:0.95;
+  letter-spacing:-0.02em;
+}
+.headline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,64px);
+  font-weight:700;
+  line-height:1.0;
+}
+.subhead{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,3vw,36px);
+  font-weight:700;
+  line-height:1.2;
+}
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--primary);
+  margin-bottom:16px;
+  display:block;
+}
+.body-lg{
+  font-size:clamp(15px,1.5vw,18px);
+  line-height:1.7;
+  color:var(--fg-muted);
+}
+.body-sm{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--fg-muted);
+}
+
+/* ── GRADIENT GOLD TEXT ── */
+.gold{
+  background:linear-gradient(135deg,hsl(43 40% 56%),hsl(43 50% 70%),hsl(43 40% 56%));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-style:italic;
+}
+
+/* ── GOLD LINE ── */
+.gold-line{
+  height:2px;
+  background:linear-gradient(90deg,transparent,hsl(43 40% 56%),transparent);
+  margin:0 auto;
+}
+
+/* ── BG VARIANTS ── */
+.bg-dark{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%)}
+.bg-card{background:var(--card)}
+.bg-green{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%)}
+.bg-dot-gold{
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes countUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.anim{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.anim.left{transform:translateX(-40px)}
+.anim.right{transform:translateX(40px)}
+.anim.visible{opacity:1;transform:none}
+.anim.scale{transform:scaleX(0);transform-origin:left;transition:transform .9s ease}
+.anim.scale.visible{transform:scaleX(1)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* ── CARD ── */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  transition:border-color .25s;
+}
+.card:hover{border-color:rgba(200,151,58,.4)}
+
+/* ── ICON CIRCLE ── */
+.icon-circle{
+  width:56px;height:56px;
+  border-radius:50%;
+  border:2px solid var(--primary);
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ── ICON BOX ── */
+.icon-box{
+  width:48px;height:48px;border-radius:var(--radius);
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-bottom:20px;
+}
+
+/* ── PLACEHOLDER IMAGE ── */
+.photo-placeholder{
+  background:var(--muted);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;
+  color:var(--fg-muted);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.photo-placeholder svg{opacity:.4}
+
+/* ── CHECK ICON ── */
+.check{
+  width:16px;height:16px;flex-shrink:0;
+  color:var(--primary);margin-top:2px;
+}
+
+/* ─────────────────────────────────────────
+   01 HERO
+───────────────────────────────────────── */
+#hero{
+  background:var(--bg);
+  flex-direction:column;
+  text-align:center;
+}
+#hero .dot-overlay{
+  position:absolute;inset:0;
+  opacity:.03;
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+#hero .hero-inner{position:relative;z-index:2}
+#hero .hero-inner .eyebrow{margin-bottom:24px}
+#hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(60px,10vw,130px);line-height:1;letter-spacing:-.02em}
+#hero .dtx{font-size:clamp(60px,10vw,130px);font-style:italic;font-weight:700;font-family:'Playfair Display',serif}
+#hero .sub-tag{
+  font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--primary);margin-top:24px;
+}
+#hero .hero-logo{
+  display:block;
+  max-width:220px;
+  margin:0 auto 40px;
+  border-radius:12px;
+}
+#hero .chevron-wrap{margin-top:64px}
+#hero .chevron{
+  display:block;
+  margin:0 auto;
+  width:32px;height:32px;
+  animation:bounce 1.5s ease-in-out infinite;
+  color:var(--primary);
+}
+#hero .hero-cta{
+  display:inline-block;
+  margin-top:36px;
+  padding:14px 32px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  border-radius:100px;
+  transition:background .2s,color .2s;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+#hero .hero-cta:hover{background:var(--primary);color:var(--primary-fg)}
+/* hero entrance animation */
+#hero .hero-inner{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both}
+#hero .chevron-wrap{animation:fadeIn 1s .8s both}
+
+/* ─────────────────────────────────────────
+   02 WHO WE ARE
+───────────────────────────────────────── */
+#who{padding-bottom:60px}
+#who .who-text{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 56px;
+}
+#who .gold-line{margin:20px auto 28px}
+
+/* Carousel */
+.carousel-wrap{position:relative;width:100%;overflow:hidden}
+.carousel-track{
+  display:flex;
+  gap:16px;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.carousel-slide{
+  flex:0 0 calc(33.333% - 11px);
+  aspect-ratio:4/3;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--muted);
+  border:1px solid var(--border);
+  position:relative;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  display:flex;
+  gap:10px;
+  color:var(--fg-muted);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.carousel-slide img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.carousel-slide svg{opacity:.35;position:relative;z-index:1}
+.carousel-slide span{position:relative;z-index:1}
+.carousel-nav{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-top:28px;
+}
+.carousel-btn{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--fg);
+  transition:border-color .2s,background .2s;
+}
+.carousel-btn:hover{border-color:var(--primary);background:var(--muted)}
+.carousel-dots{display:flex;gap:8px;align-items:center}
+.carousel-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border);
+  transition:background .2s,transform .2s;
+  cursor:pointer;border:none;padding:0;
+}
+.carousel-dot.active{background:var(--primary);transform:scale(1.4)}
+@media(max-width:700px){
+  .carousel-slide{flex:0 0 calc(100% - 0px)}
+}
+
+/* ─────────────────────────────────────────
+   03 STATS + PILLARS
+───────────────────────────────────────── */
+#stats{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%)}
+#stats .green-glow{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,hsl(150 32% 20%) 0%,hsl(150 32% 30%) 100%);
+  opacity:.1;
+}
+#stats .stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:48px;
+  text-align:center;
+  width:100%;max-width:1000px;
+}
+.stat-big{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,6vw,80px);
+  font-weight:700;
+  line-height:1;
+}
+.stat-label{
+  font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg-muted);margin-top:12px;
+}
+/* Pillars */
+#stats .pillars-divider{
+  width:100%;max-width:1000px;
+  height:1px;background:var(--border);
+  margin:56px 0 48px;
+}
+#stats .pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  width:100%;max-width:1000px;
+}
+.pillar-card{
+  background:var(--card);
+  padding:36px 32px;
+  border-top:2px solid var(--border);
+  transition:border-color .25s;
+}
+.pillar-card:first-child{border-top-color:var(--primary)}
+.pillar-card:hover{border-top-color:var(--primary)}
+.pillar-num{
+  font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--primary);margin-bottom:12px;
+}
+.pillar-name{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;margin-bottom:12px;
+}
+.pillar-body{font-size:14px;color:var(--fg-muted);line-height:1.7}
+
+/* Nav dots */
+#navDots{
+  position:fixed;
+  top:50%;right:20px;
+  transform:translateY(-50%);
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+.nav-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);
+  border:none;cursor:pointer;padding:0;
+  transition:background .25s,transform .25s;
+}
+.nav-dot.active{background:var(--primary);transform:scale(1.4)}
+@media(max-width:600px){#navDots{display:none}}
+
+/* ─────────────────────────────────────────
+   04 PROBLEM
+───────────────────────────────────────── */
+#problem{background:var(--card)}
+#problem .problem-lead{
+  max-width:720px;margin:0 auto;
+  font-size:clamp(20px,2.8vw,32px);line-height:1.55;
+  color:var(--fg);font-weight:400;text-align:center;
+}
+#problem .impact-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-top:56px;width:100%;
+}
+.impact-card{
+  background:var(--bg);padding:36px 28px;
+  border-top:2px solid var(--border);
+  transition:border-color .25s;
+}
+.impact-card:hover{border-top-color:var(--primary)}
+.impact-stat{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4vw,64px);font-weight:700;line-height:1;margin-bottom:6px;
+}
+.impact-lbl{
+  font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--fg-muted);margin-bottom:20px;display:block;
+}
+.impact-body{font-size:14px;color:var(--fg-muted);line-height:1.7;margin-top:16px}
+/* Bar visual */
+.vis-bar-wrap{height:8px;background:var(--border);border-radius:4px}
+.vis-bar{height:100%;border-radius:4px;background:var(--primary);width:0;transition:width 1.2s ease .3s}
+.anim.visible .vis-bar{width:73%}
+/* Ring visual */
+.vis-ring{display:block;margin:4px 0}
+.ring-fill{transition:stroke-dashoffset 1.2s ease .3s}
+/* Trend bars */
+.vis-trend{display:flex;align-items:flex-end;gap:5px;height:44px;margin:4px 0}
+.vis-trend-bar{flex:1;border-radius:2px 2px 0 0;background:var(--border);height:20%;transition:height 1s ease,background 1s ease}
+.anim.visible .vis-trend-bar.t1{height:20%;background:var(--primary)}
+.anim.visible .vis-trend-bar.t2{height:45%;background:var(--primary);transition-delay:.1s}
+.anim.visible .vis-trend-bar.t3{height:70%;background:var(--primary);transition-delay:.2s}
+.anim.visible .vis-trend-bar.t4{height:100%;background:var(--primary);transition-delay:.3s}
+@media(max-width:700px){#problem .impact-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────
+   05 WHAT WE BRING TO THE FLOOR (flip cards)
+───────────────────────────────────────── */
+#activations{background:var(--bg)}
+#activations .flip-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:52px;
+  width:100%;
+}
+/* 3D flip card */
+.flip-card{
+  perspective:1200px;
+  cursor:pointer;
+  min-height:320px;
+}
+.flip-inner{
+  position:relative;
+  width:100%;height:100%;
+  min-height:320px;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+/* Front */
+.flip-front{
+  background:var(--muted);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;
+  transition:border-color .25s;
+}
+.flip-card:hover .flip-front{border-color:rgba(200,151,58,.4)}
+.flip-front-img{
+  flex:1;
+  background:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  color:var(--fg-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  position:relative;overflow:hidden;
+  min-height:200px;
+}
+.flip-front-img img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+.flip-front-img svg{position:relative;z-index:1;opacity:.35}
+.flip-front-img span{position:relative;z-index:1}
+.flip-front-footer{
+  padding:20px 24px;
+  background:var(--card);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.flip-front-name{
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+}
+.flip-hint{
+  font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);display:flex;align-items:center;gap:6px;flex-shrink:0;
+}
+.flip-hint svg{color:var(--primary)}
+/* Back */
+.flip-back{
+  background:var(--deep-green,hsl(150 32% 20%));
+  border:1px solid rgba(200,151,58,.25);
+  transform:rotateY(180deg);
+  display:flex;flex-direction:column;
+  padding:32px;
+}
+.flip-back-tag{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:14px;
+}
+.flip-back-title{
+  font-family:'Playfair Display',serif;font-size:24px;font-weight:700;
+  margin-bottom:16px;line-height:1.2;
+}
+.flip-back-body{
+  font-size:14px;line-height:1.75;color:rgba(245,240,230,.75);flex:1;
+}
+.flip-back-close{
+  margin-top:20px;font-size:11px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+}
+@media(max-width:900px){#activations .flip-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────
+   07 HOW IT WORKS
+───────────────────────────────────────── */
+#how{background:var(--card)}
+#how .steps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+  text-align:center;
+  margin-top:48px;
+  position:relative;
+}
+#how .connector{
+  position:absolute;
+  top:40px;left:0;right:0;
+  height:1px;background:var(--border);
+}
+#how .step-icon{
+  position:relative;z-index:2;
+  margin:0 auto 20px;
+}
+.step-num{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:6px;
+}
+.step-title{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:700;margin-bottom:10px;
+}
+
+/* ─────────────────────────────────────────
+   07 GALLERY
+───────────────────────────────────────── */
+/* ── MOMENTS GALLERY ── */
+#gallery,#gallery-alt{background:var(--bg)}
+.moments-grid{display:grid;gap:2px;margin-top:48px;width:100%}
+.moments-2x2{grid-template-columns:repeat(2,1fr)}
+.moments-1x4{grid-template-columns:repeat(4,1fr)}
+.moment-tile{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--card);border-top:2px solid var(--border);
+  transition:border-color .25s;height:360px;
+}
+.moments-1x4 .moment-tile{height:420px}
+.moment-tile:hover{border-top-color:var(--primary)}
+.moment-ghost{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,52px);font-weight:900;
+  color:var(--fg);opacity:.1;text-align:center;padding:20px;z-index:1;
+  pointer-events:none;line-height:1.1;transition:opacity .35s;
+}
+.moment-tile:hover .moment-ghost{opacity:.04}
+.moment-scroll{
+  position:absolute;inset:0;z-index:2;overflow:hidden;
+  opacity:0;transition:opacity .4s;
+}
+.moment-tile:hover .moment-scroll{opacity:1}
+.moment-strip{
+  display:flex;flex-direction:column;
+  animation:scrollStrip 14s linear infinite;
+}
+.moment-strip img{width:100%;height:360px;object-fit:cover;flex-shrink:0;display:block}
+.moments-1x4 .moment-strip img{height:420px}
+.moment-strip .ph-slide{
+  width:100%;height:360px;flex-shrink:0;
+  background:var(--muted);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  color:var(--fg-muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+}
+.moments-1x4 .moment-strip .ph-slide{height:420px}
+.moment-label{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:16px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
+  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);opacity:0;transition:opacity .35s;
+}
+.moment-tile:hover .moment-label{opacity:1}
+@keyframes scrollStrip{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@media(max-width:700px){.moments-2x2,.moments-1x4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.moments-2x2,.moments-1x4{grid-template-columns:1fr}}
+
+
+/* ─────────────────────────────────────────
+   08 VALUE
+───────────────────────────────────────── */
+#value{background:var(--card)}
+#value .value-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  margin-top:48px;
+}
+#value .value-row{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  padding:28px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  transition:border-color .25s;
+}
+#value .value-row:hover{border-color:rgba(200,151,58,.4)}
+#value .value-row.left-anim{transform:translateX(-40px)}
+#value .value-row.right-anim{transform:translateX(40px)}
+
+/* ─────────────────────────────────────────
+   09 PACKAGES
+───────────────────────────────────────── */
+#packages{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%);padding-bottom:80px}
+#packages .pkg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:48px;
+}
+.pkg-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.pkg-card.featured{
+  border-color:var(--primary);
+  box-shadow:0 0 40px -12px rgba(200,151,58,.3);
+}
+.pkg-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--primary);color:var(--primary-fg);
+  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:5px 16px;border-radius:100px;white-space:nowrap;
+}
+.pkg-tier{
+  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg-muted);
+}
+.pkg-name{
+  font-family:'Playfair Display',serif;
+  font-size:32px;font-weight:700;margin-top:6px;
+}
+.pkg-features{
+  margin-top:24px;display:flex;flex-direction:column;gap:12px;
+}
+.pkg-feature{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--fg-muted);line-height:1.4;
+}
+
+/* ─────────────────────────────────────────
+   10 CONTACT
+───────────────────────────────────────── */
+#contact{background:var(--card)}
+#contact .dot-overlay{
+  position:absolute;inset:0;
+  opacity:.02;
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+#contact .contact-links{
+  display:flex;flex-wrap:wrap;
+  gap:32px;justify-content:center;
+  margin-top:48px;
+}
+.contact-link{
+  display:flex;align-items:center;gap:10px;
+  font-size:16px;
+  transition:color .2s;
+}
+.contact-link:hover{color:var(--primary)}
+.contact-link svg{color:var(--primary)}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:900px){
+  #stats .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  #stats .pillars-grid{grid-template-columns:1fr}
+  #bring .cards-grid{grid-template-columns:1fr}
+  #how .steps-grid{grid-template-columns:1fr 1fr}
+  #how .connector{display:none}
+  #packages .pkg-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .snap-section{padding:80px 16px}
+  #stats .stats-grid{grid-template-columns:1fr 1fr}
+  #how .steps-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+<nav id="navDots"></nav>
+<div class="snap-container" id="snapContainer">
+
+<!-- ──────────────────────────────────────
+  01 HERO
+────────────────────────────────────────-->
+<section class="snap-section bg-dark" id="hero">
+  <div class="dot-overlay"></div>
+  <div class="hero-inner">
+    <img src="TheGroupLogo_Final.png" alt="The Group DTX" class="hero-logo" />
+    <span class="eyebrow">Dallas, Texas</span>
+    <h1>THE GROUP<br><span class="dtx gold">DTX</span></h1>
+    <div class="gold-line" style="width:128px;margin:28px auto"></div>
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(18px,2vw,24px);font-style:italic;color:rgba(245,240,230,.8)">"Where Adults Come to Play."</p>
+    <p class="sub-tag">Social Activations for Festivals &amp; Conferences</p>
+    <a href="#contact" class="hero-cta">Activate Your Next Event</a>
+    <div class="chevron-wrap">
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  02 WHO WE ARE
+────────────────────────────────────────-->
+<section class="snap-section" id="who">
+  <div class="inner">
+    <div class="who-text anim">
+      <span class="eyebrow">Who We Are</span>
+      <h2 class="headline">Community Through <span class="gold">Play</span></h2>
+      <div class="gold-line" style="width:80px"></div>
+      <p class="body-lg" style="margin-bottom:16px">The Group DTX is a community-driven experiences brand based in Dallas, Texas. We produce social activations that turn large gatherings into deeply connected moments, blending play, culture, and competition to create unforgettable experiences.</p>
+      <p class="body-lg">What started as a simple gathering of friends has grown into a movement - a brand that believes every adult deserves a space to be unapologetically playful. We don't just throw events. <strong style="color:var(--fg)">We build community.</strong></p>
+    </div>
+
+    <div class="carousel-wrap anim d2">
+      <div class="carousel-track" id="whoCarousel">
+        <div class="carousel-slide">
+          <img src="Afro Art Social/Crowning+Glory2061.webp" alt="Afro Art Social event" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="Afro Art Social/Crowning+Glory2169.webp" alt="Afro Art Social event" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="Afro Art Social/Crowning+Glory2233.webp" alt="Afro Art Social event" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="Afro Art Social/Crowning+Glory2646.webp" alt="Afro Art Social event" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="Afro Art Social/Crowning+Glory2695.webp" alt="Afro Art Social event" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="The Group DTX event" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="whoPrev" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="carousel-dots" id="whoDots"></div>
+        <button class="carousel-btn" id="whoNext" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  03 STATS + PILLARS
+────────────────────────────────────────-->
+<section class="snap-section" id="stats" style="align-items:center;flex-direction:column;padding-top:100px;padding-bottom:80px">
+  <div class="green-glow"></div>
+  <div style="position:relative;z-index:2;width:100%;max-width:1000px">
+    <span class="eyebrow anim" style="text-align:center;display:block;margin-bottom:56px">By The Numbers</span>
+    <div class="stats-grid">
+      <div class="anim" style="text-align:center">
+        <div class="stat-big gold" data-target="150" data-suffix="+">150+</div>
+        <div class="stat-label">Events Produced</div>
+      </div>
+      <div class="anim d1" style="text-align:center">
+        <div class="stat-big gold" data-target="76" data-suffix="K">76K</div>
+        <div class="stat-label">Social Views</div>
+      </div>
+      <div class="anim d2" style="text-align:center">
+        <div class="stat-big gold" data-target="11" data-suffix="K+">11K+</div>
+        <div class="stat-label">Attendees Served</div>
+      </div>
+      <div class="anim d3" style="text-align:center">
+        <div class="stat-big gold">3</div>
+        <div class="stat-label">Years of Sold-Out Events</div>
+      </div>
+    </div>
+
+    <div class="pillars-divider anim d2"></div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card anim d2">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Play</div>
+        <div class="pillar-body">Play is how real connection happens. It breaks down walls before people even realize it. We don't manufacture icebreakers - we design experiences where play does the work for us.</div>
+      </div>
+      <div class="pillar-card anim d3">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Community</div>
+        <div class="pillar-body">We're not just throwing events. We're building something that lasts. Every experience we create is a brick in a community where people belong long after the night is over.</div>
+      </div>
+      <div class="pillar-card anim d4">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Culture</div>
+        <div class="pillar-body">Diaspora identity, nostalgia, and shared reference points are not a marketing angle. They're the foundation. Culture is why our events feel different - it's what no one else can replicate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  04 PROBLEM
+────────────────────────────────────────-->
+<section class="snap-section" id="problem" style="flex-direction:column;align-items:center;padding-top:100px;padding-bottom:80px">
+  <div class="inner" style="display:flex;flex-direction:column;align-items:center">
+    <span class="eyebrow anim">The Problem</span>
+    <p class="problem-lead anim d1">
+      Festivals and conferences spend millions on programming, but most leave connection to chance.
+      Attendees crave community, yet <strong style="color:var(--fg)">few events design for it intentionally.</strong>
+    </p>
+    <div class="gold-line anim scale d2" style="width:160px;margin:36px auto"></div>
+    <div class="impact-grid">
+      <div class="impact-card anim d2">
+        <div class="impact-stat gold">73%</div>
+        <span class="impact-lbl">of attendees arrive alone</span>
+        <div class="vis-bar-wrap"><div class="vis-bar"></div></div>
+        <div class="impact-body">No structured activation means no connections - and no reason to come back next year.</div>
+      </div>
+      <div class="impact-card anim d3">
+        <div class="impact-stat gold">60%</div>
+        <span class="impact-lbl">of event memories fade within 2 weeks</span>
+        <svg class="vis-ring" width="48" height="48" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="var(--border)" stroke-width="4"/>
+          <circle class="ring-fill" cx="24" cy="24" r="18" fill="none" stroke="hsl(43 40% 56%)"
+            stroke-width="4" stroke-linecap="round"
+            stroke-dasharray="113" stroke-dashoffset="113"
+            style="transform:rotate(-90deg);transform-origin:center"/>
+        </svg>
+        <div class="impact-body">The people you met? Those last. Play creates the kind of memory that sticks.</div>
+      </div>
+      <div class="impact-card anim d4">
+        <div class="impact-stat gold">4x</div>
+        <span class="impact-lbl">more likely to return</span>
+        <div class="vis-trend">
+          <div class="vis-trend-bar t1"></div>
+          <div class="vis-trend-bar t2"></div>
+          <div class="vis-trend-bar t3"></div>
+          <div class="vis-trend-bar t4"></div>
+        </div>
+        <div class="impact-body">Attendees who make a real connection at your event come back the following year.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  05 WHAT WE BRING TO THE FLOOR
+────────────────────────────────────────-->
+<section class="snap-section" id="activations">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Our Activations</span>
+      <h2 class="headline">What We <span class="gold">Bring to the Floor</span></h2>
+      <p class="body-sm anim d1" style="max-width:560px;margin:16px auto 0">Tap any card to see what we bring. Every activation is built to spark real connections.</p>
+    </div>
+    <div class="flip-grid">
+
+      <!-- Card 1: The Booth -->
+      <div class="flip-card anim d1">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-img">
+              <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="The Booth"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                </svg>
+                <span style="font-size:12px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase">Photo Coming Soon</span>
+              </span>
+            </div>
+            <div class="flip-front-footer">
+              <div class="flip-front-name">The Booth</div>
+              <div class="flip-hint">Tap to learn more</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Activation Hub</div>
+            <div class="flip-back-title">The Booth</div>
+            <div class="flip-back-body">We plant a dedicated activation zone at your event - a standing booth and video booth that becomes the heartbeat of the floor. Attendees stop, engage, capture memories, and keep coming back. It's the physical anchor that makes everything else possible.</div>
+            <div class="flip-back-close">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Social Activation Games -->
+      <div class="flip-card anim d2">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-img">
+              <img src="Afro Art Social/Crowning+Glory2233.webp" alt="Social Activation Games"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/>
+                </svg>
+                <span style="font-size:12px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase">Photo Coming Soon</span>
+              </span>
+            </div>
+            <div class="flip-front-footer">
+              <div class="flip-front-name">Social Activation Games</div>
+              <div class="flip-hint">Tap to learn more</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Ice Breaker Suite</div>
+            <div class="flip-back-title">Social Activation Games</div>
+            <div class="flip-back-body">From the Lanyard Game (a built-in connection challenge) to custom Networking Bingo and fully branded themed games - we bring a suite of activations designed to get strangers talking. Every game is tailored to your event's theme, industry, or crowd.</div>
+            <div class="flip-back-close">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Content & Moments -->
+      <div class="flip-card anim d3">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-img">
+              <img src="Afro Art Social/Crowning+Glory2646.webp" alt="Content and Moments"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
+                  <rect x="2" y="7" width="15" height="10" rx="1"/><path d="M17 9l5-2v10l-5-2"/>
+                </svg>
+                <span style="font-size:12px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase">Photo Coming Soon</span>
+              </span>
+            </div>
+            <div class="flip-front-footer">
+              <div class="flip-front-name">Content & Moments</div>
+              <div class="flip-hint">Tap to learn more</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Social-Ready Content</div>
+            <div class="flip-back-title">Content & Moments</div>
+            <div class="flip-back-body">Our video team captures the energy as it happens - attendee interviews, highlight reels, branded moments, and shareable clips your audience actually wants to watch. You leave with marketing content. They leave with memories.</div>
+            <div class="flip-back-close">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  07 HOW IT WORKS
+────────────────────────────────────────-->
+<section class="snap-section" id="how">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="headline">A Seamless <span class="gold">Process</span></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="connector"></div>
+      <div class="anim d1">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <div class="step-num">Step 1</div>
+        <div class="step-title">We Design</div>
+        <p class="body-sm">Custom activations tailored to your event's audience, theme, and goals.</p>
+      </div>
+      <div class="anim d2">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="step-num">Step 2</div>
+        <div class="step-title">We Activate</div>
+        <p class="body-sm">On-site execution with our trained team -energy, equipment, and vibes included.</p>
+      </div>
+      <div class="anim d3">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <div class="step-num">Step 3</div>
+        <div class="step-title">They Connect</div>
+        <p class="body-sm">Attendees bond through shared play -forming real relationships in real time.</p>
+      </div>
+      <div class="anim d4">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div class="step-num">Step 4</div>
+        <div class="step-title">They Remember</div>
+        <p class="body-sm">Your event becomes the one they talk about. The one they come back to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  07 MOMENTS - VERSION A (2x2 grid)
+────────────────────────────────────────-->
+<section class="snap-section" id="gallery">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Past Events</span>
+      <h2 class="headline">Moments We've <span class="gold">Created</span></h2>
+      <p class="body-sm anim d1" style="max-width:480px;margin:12px auto 0">Hover over any event to see it come alive.</p>
+    </div>
+    <div class="moments-grid moments-2x2">
+
+      <!-- Afro Art Social -->
+      <div class="moment-tile anim d1">
+        <div class="moment-ghost">Afro Art Social</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="Afro Art Social/Crowning+Glory2061.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2169.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2233.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2646.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2695.webp" alt="Afro Art Social">
+            <!-- Duplicate for seamless loop -->
+            <img src="Afro Art Social/Crowning+Glory2061.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2169.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2233.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2646.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2695.webp" alt="Afro Art Social">
+          </div>
+        </div>
+        <div class="moment-label">Afro Art Social</div>
+      </div>
+
+      <!-- AfroJamz -->
+      <div class="moment-tile anim d2">
+        <div class="moment-ghost">AfroJamz</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <!-- Duplicate for seamless loop -->
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+          </div>
+        </div>
+        <div class="moment-label">AfroJamz</div>
+      </div>
+
+      <!-- Trivia & Karaoke -->
+      <div class="moment-tile anim d3">
+        <div class="moment-ghost">Trivia &amp; Karaoke</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <span>Trivia &amp; Karaoke Night</span>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <span>Trivia &amp; Karaoke Night</span>
+            </div>
+          </div>
+        </div>
+        <div class="moment-label">Trivia &amp; Karaoke</div>
+      </div>
+
+      <!-- Summer Olympics -->
+      <div class="moment-tile anim d4">
+        <div class="moment-ghost">Summer Olympics</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M3 12l3 3 3-3"/><path d="M18 12l-3 3-3-3"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+              <span>Summer Olympics</span>
+            </div>
+            <!-- Duplicate -->
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M3 12l3 3 3-3"/><path d="M18 12l-3 3-3-3"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+              <span>Summer Olympics</span>
+            </div>
+          </div>
+        </div>
+        <div class="moment-label">Summer Olympics</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  07b MOMENTS - VERSION B (1x4 row)
+────────────────────────────────────────-->
+<section class="snap-section" id="gallery-alt">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Past Events</span>
+      <h2 class="headline">Moments We've <span class="gold">Created</span></h2>
+      <p class="body-sm anim d1" style="max-width:480px;margin:12px auto 0">Hover over any event to see it come alive.</p>
+    </div>
+    <div class="moments-grid moments-1x4">
+
+      <!-- Afro Art Social -->
+      <div class="moment-tile anim d1">
+        <div class="moment-ghost">Afro Art Social</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="Afro Art Social/Crowning+Glory2061.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2169.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2233.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2646.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2695.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2061.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2169.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2233.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2646.webp" alt="Afro Art Social">
+            <img src="Afro Art Social/Crowning+Glory2695.webp" alt="Afro Art Social">
+          </div>
+        </div>
+        <div class="moment-label">Afro Art Social</div>
+      </div>
+
+      <!-- AfroJamz -->
+      <div class="moment-tile anim d2">
+        <div class="moment-ghost">AfroJamz</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+            <img src="AfroJamz/The Group DTX Banner - Oct 2025.jpg" alt="AfroJamz">
+          </div>
+        </div>
+        <div class="moment-label">AfroJamz</div>
+      </div>
+
+      <!-- Trivia & Karaoke -->
+      <div class="moment-tile anim d3">
+        <div class="moment-ghost">Trivia &amp; Karaoke</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span>Trivia &amp; Karaoke Night</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span>Trivia &amp; Karaoke Night</span>
+            </div>
+          </div>
+        </div>
+        <div class="moment-label">Trivia &amp; Karaoke</div>
+      </div>
+
+      <!-- Summer Olympics -->
+      <div class="moment-tile anim d4">
+        <div class="moment-ghost">Summer Olympics</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+              <span>Summer Olympics</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+              <span>Photos Coming Soon</span>
+            </div>
+            <div class="ph-slide">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+              <span>Summer Olympics</span>
+            </div>
+          </div>
+        </div>
+        <div class="moment-label">Summer Olympics</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  08 VALUE
+────────────────────────────────────────-->
+<section class="snap-section" id="value">
+  <div class="inner">
+    <div class="anim" style="text-align:center;margin-bottom:0">
+      <span class="eyebrow">The Value</span>
+      <h2 class="headline">Why Your Event <span class="gold">Needs</span> Us</h2>
+    </div>
+    <div class="value-list">
+      <div class="value-row anim left d1">
+        <div class="icon-box" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Higher Engagement</h3>
+          <p class="body-sm">Our activations drive 3x more attendee interaction compared to passive programming.</p>
+        </div>
+      </div>
+      <div class="value-row anim right d2">
+        <div class="icon-box" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Stronger Community</h3>
+          <p class="body-sm">Attendees who connect through play are 4x more likely to return the next year.</p>
+        </div>
+      </div>
+      <div class="value-row anim left d3">
+        <div class="icon-box" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Standout Activation</h3>
+          <p class="body-sm">Give your event a signature moment -the one thing people post about, talk about, and remember.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  09 PACKAGES
+────────────────────────────────────────-->
+<section class="snap-section" id="packages">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Partnership Packages</span>
+      <h2 class="headline">Choose Your <span class="gold">Level</span></h2>
+    </div>
+    <div class="pkg-grid">
+
+      <!-- Silver -->
+      <div class="pkg-card anim d1">
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="pkg-tier">Essentials</div>
+          <div class="pkg-name">Silver</div>
+          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
+        </div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            1 social activation booth
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Branded game setup
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            On-site activation team (2 staff)
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Social media mention
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Post-event recap photos
+          </li>
+        </ul>
+      </div>
+
+      <!-- Gold (featured) -->
+      <div class="pkg-card featured anim d2">
+        <div class="pkg-badge">Most Popular</div>
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="pkg-tier">Recommended</div>
+          <div class="pkg-name">Gold</div>
+          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
+        </div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            2 social activation zones
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Custom-themed game design
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            On-site team (4 staff)
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            MC / host for activations
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Social media campaign
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Event recap video
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Co-branded signage
+          </li>
+        </ul>
+      </div>
+
+      <!-- Diamond -->
+      <div class="pkg-card anim d3">
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="pkg-tier">Premium</div>
+          <div class="pkg-name">Diamond</div>
+          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
+        </div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Full-event social activation takeover
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Bespoke experience design
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            On-site team (6+ staff)
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Dedicated MC / host
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Full social media campaign
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Professional photo + video
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Co-branded merch capsule
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Post-event analytics report
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  10 CONTACT
+────────────────────────────────────────-->
+<section class="snap-section" id="contact">
+  <div class="dot-overlay"></div>
+  <div class="inner-sm" style="position:relative;z-index:2">
+    <h2 class="headline anim" style="font-size:clamp(40px,7vw,90px)">
+      Come <span class="gold">Play</span> With Us.
+    </h2>
+    <div class="gold-line anim d1" style="width:128px;margin:36px auto"></div>
+    <p class="body-lg anim d2" style="margin-bottom:0">
+      Ready to make your next event unforgettable? Let's build something together.
+    </p>
+    <div class="contact-links anim d3">
+      <a href="https://instagram.com/thegroupdtx" target="_blank" rel="noopener" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @thegroupdtx
+      </a>
+      <a href="mailto:info@thegroupdtx.com" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@thegroupdtx.com
+      </a>
+      <a href="tel:+12145551234" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.1 6.1l.82-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        (214) 555-1234
+      </a>
+    </div>
+    <p class="anim d4" style="margin-top:64px;font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--fg-muted)">
+      "Where Adults Come to Play." -Dallas, TX
+    </p>
+  </div>
+</section>
+
+</div><!-- end snap-container -->
+
+<script>
+const container = document.getElementById('snapContainer');
+const progressBar = document.getElementById('progressBar');
+
+// ── All sections for nav dots
+const sections = Array.from(document.querySelectorAll('.snap-section'));
+const navDotsEl = document.getElementById('navDots');
+
+// Build nav dots
+sections.forEach((sec, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'nav-dot';
+  dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+  dot.addEventListener('click', () => {
+    sec.scrollIntoView({ behavior: 'smooth' });
+  });
+  navDotsEl.appendChild(dot);
+});
+const dots = navDotsEl.querySelectorAll('.nav-dot');
+
+// ── Progress bar + active dot
+function onScroll() {
+  const scrollTop = container.scrollTop;
+  const scrollHeight = container.scrollHeight - container.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+
+  // Active dot: which section is most visible
+  const mid = scrollTop + container.clientHeight / 2;
+  let activeIdx = 0;
+  sections.forEach((sec, i) => {
+    if (sec.offsetTop <= mid) activeIdx = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+}
+container.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── Scroll reveal
+const animEls = document.querySelectorAll('.anim');
+const revealIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      const ring = e.target.querySelector('.ring-fill');
+      if (ring) setTimeout(() => { ring.style.strokeDashoffset = '45'; }, 300);
+    }
+  });
+}, { root: container, threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+animEls.forEach(el => revealIo.observe(el));
+
+// ── Count-up for stats
+function countUp(el, target, suffix) {
+  let start = 0;
+  const steps = 60, interval = 1400 / steps, inc = target / steps;
+  const timer = setInterval(() => {
+    start = Math.min(start + inc, target);
+    el.textContent = Math.floor(start) + suffix;
+    if (start >= target) clearInterval(timer);
+  }, interval);
+}
+let counted = false;
+const statsIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('[data-target]').forEach(el => {
+        countUp(el, parseInt(el.dataset.target), el.dataset.suffix);
+      });
+    }
+  });
+}, { root: container, threshold: 0.3 });
+statsIo.observe(document.getElementById('stats'));
+
+// ── Chevron scrolls to next slide
+document.querySelector('.chevron-wrap').style.cursor = 'pointer';
+document.querySelector('.chevron-wrap').addEventListener('click', () => {
+  document.getElementById('who').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ── Who We Are carousel
+(function() {
+  const track = document.getElementById('whoCarousel');
+  if (!track) return;
+  const slides = track.querySelectorAll('.carousel-slide');
+  const dotsWrap = document.getElementById('whoDots');
+  const perView = window.innerWidth <= 700 ? 1 : 3;
+  const total = slides.length;
+  let cur = 0;
+
+  // Build dots
+  const cdots = [];
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Photo ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+    cdots.push(d);
+  }
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    const slideW = slides[0].getBoundingClientRect().width + 16;
+    track.style.transform = 'translateX(-' + (cur * slideW) + 'px)';
+    cdots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  document.getElementById('whoNext').addEventListener('click', () => goTo(cur + 1));
+  document.getElementById('whoPrev').addEventListener('click', () => goTo(cur - 1));
+
+  // Auto-advance
+  setInterval(() => goTo(cur + 1), 4000);
+})();
+
+// ── Flip cards
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+</script>
+</body>
+</html>
