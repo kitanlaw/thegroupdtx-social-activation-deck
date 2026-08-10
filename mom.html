@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mind Over Merlot · Sponsor Activation | The Group DTX</title>
+<meta name="description" content="Sponsor Mind Over Merlot: the sold-out Dallas trivia night with a diaspora audience of 100 attendees per event, age 24-35, real spend, culturally aligned. Barter to Season Sponsor packages by The Group DTX." />
+<meta property="og:title" content="Mind Over Merlot · Sponsor Activation" />
+<meta property="og:description" content="Six sold-out events. 100 attendees per room. The DFW diaspora audience worth activating." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://thegroupdtx.com/mom" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font:inherit}
+
+/* ── TOKENS ── */
+:root{
+  --bg:          hsl(0 0% 5%);
+  --card:        hsl(0 0% 8%);
+  --muted:       hsl(0 0% 14%);
+  --border:      hsl(0 0% 18%);
+  --fg:          hsl(40 33% 95%);
+  --fg-muted:    hsl(40 10% 60%);
+  --primary:     hsl(43 40% 56%);
+  --primary-fg:  hsl(0 0% 5%);
+  --green:       hsl(150 32% 30%);
+  --green-dark:  hsl(150 32% 20%);
+  --radius:      0.5rem;
+}
+
+/* ── PROGRESS BAR ── */
+#progressBar{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg,hsl(43 40% 46%),hsl(43 50% 70%),hsl(43 40% 56%));
+  z-index:1000;
+  transition:width .08s linear;
+  box-shadow:0 0 8px hsl(43 40% 56% / .5);
+}
+
+/* ── BASE ── */
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── SCROLL SNAP CONTAINER ── */
+.snap-container{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+}
+
+/* ── SECTION BASE ── */
+.snap-section{
+  scroll-snap-align:start;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 24px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── INNER WIDTHS ── */
+.inner{width:100%;max-width:1200px;margin:0 auto}
+.inner-sm{width:100%;max-width:800px;margin:0 auto;text-align:center}
+.inner-xs{width:100%;max-width:600px;margin:0 auto;text-align:center}
+
+/* ── TYPOGRAPHY ── */
+.display{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(56px,9vw,120px);
+  font-weight:900;
+  line-height:0.95;
+  letter-spacing:-0.02em;
+}
+.headline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,64px);
+  font-weight:700;
+  line-height:1.0;
+}
+.subhead{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,3vw,36px);
+  font-weight:700;
+  line-height:1.2;
+}
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--primary);
+  margin-bottom:16px;
+  display:block;
+}
+.body-lg{
+  font-size:clamp(15px,1.5vw,18px);
+  line-height:1.7;
+  color:var(--fg-muted);
+}
+.body-sm{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--fg-muted);
+}
+
+/* ── GRADIENT GOLD TEXT ── */
+.gold{
+  background:linear-gradient(135deg,hsl(43 40% 56%),hsl(43 50% 70%),hsl(43 40% 56%));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-style:italic;
+}
+
+/* ── GOLD LINE ── */
+.gold-line{
+  height:2px;
+  background:linear-gradient(90deg,transparent,hsl(43 40% 56%),transparent);
+  margin:0 auto;
+}
+
+/* ── BG VARIANTS ── */
+.bg-dark{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%)}
+.bg-card{background:var(--card)}
+.bg-green{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%)}
+.bg-dot-gold{
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes countUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.anim{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.anim.left{transform:translateX(-40px)}
+.anim.right{transform:translateX(40px)}
+.anim.visible{opacity:1;transform:none}
+.anim.scale{transform:scaleX(0);transform-origin:left;transition:transform .9s ease}
+.anim.scale.visible{transform:scaleX(1)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* ── CARD ── */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  transition:border-color .25s;
+}
+.card:hover{border-color:rgba(200,151,58,.4)}
+
+/* ── ICON CIRCLE ── */
+.icon-circle{
+  width:56px;height:56px;
+  border-radius:50%;
+  border:2px solid var(--primary);
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ── ICON BOX ── */
+.icon-box{
+  width:48px;height:48px;border-radius:var(--radius);
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-bottom:20px;
+}
+
+/* ── PLACEHOLDER IMAGE ── */
+.photo-placeholder{
+  background:var(--muted);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;
+  color:var(--fg-muted);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.photo-placeholder svg{opacity:.4}
+
+/* ── CHECK ICON ── */
+.check{
+  width:16px;height:16px;flex-shrink:0;
+  color:var(--primary);margin-top:2px;
+}
+
+/* ─────────────────────────────────────────
+   01 HERO
+───────────────────────────────────────── */
+#hero{
+  background:var(--bg);
+  flex-direction:column;
+  text-align:center;
+}
+#hero .dot-overlay{
+  position:absolute;inset:0;
+  opacity:.03;
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+#hero .hero-inner{position:relative;z-index:2}
+#hero .hero-inner .eyebrow{margin-bottom:24px}
+#hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(60px,10vw,130px);line-height:1;letter-spacing:-.02em}
+#hero .dtx{font-size:clamp(60px,10vw,130px);font-style:italic;font-weight:700;font-family:'Playfair Display',serif}
+#hero .sub-tag{
+  font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--primary);margin-top:24px;
+}
+#hero .hero-logo{
+  display:block;
+  max-width:220px;
+  margin:0 auto 40px;
+  border-radius:12px;
+}
+#hero .chevron-wrap{margin-top:64px}
+#hero .chevron{
+  display:block;
+  margin:0 auto;
+  width:32px;height:32px;
+  animation:bounce 1.5s ease-in-out infinite;
+  color:var(--primary);
+}
+#hero .hero-cta{
+  display:inline-block;
+  margin-top:36px;
+  padding:14px 32px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  border-radius:100px;
+  transition:background .2s,color .2s;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+#hero .hero-cta:hover{background:var(--primary);color:var(--primary-fg)}
+/* hero entrance animation */
+#hero .hero-inner{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both}
+#hero .chevron-wrap{animation:fadeIn 1s .8s both}
+
+/* ─────────────────────────────────────────
+   02 WHO WE ARE
+───────────────────────────────────────── */
+#who{padding-bottom:60px}
+#who .who-text{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 56px;
+}
+#who .gold-line{margin:20px auto 28px}
+
+/* Carousel */
+.carousel-wrap{position:relative;width:100%;overflow:hidden}
+.carousel-track{
+  display:flex;
+  gap:16px;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.carousel-slide{
+  flex:0 0 calc(33.333% - 11px);
+  aspect-ratio:4/3;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--muted);
+  border:1px solid var(--border);
+  position:relative;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  display:flex;
+  gap:10px;
+  color:var(--fg-muted);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.carousel-slide img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.carousel-slide svg{opacity:.35;position:relative;z-index:1}
+.carousel-slide span{position:relative;z-index:1}
+.carousel-nav{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-top:28px;
+}
+.carousel-btn{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--fg);
+  transition:border-color .2s,background .2s;
+}
+.carousel-btn:hover{border-color:var(--primary);background:var(--muted)}
+.carousel-dots{display:flex;gap:8px;align-items:center}
+.carousel-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border);
+  transition:background .2s,transform .2s;
+  cursor:pointer;border:none;padding:0;
+}
+.carousel-dot.active{background:var(--primary);transform:scale(1.4)}
+@media(max-width:700px){
+  .carousel-slide{flex:0 0 calc(100% - 0px)}
+}
+
+/* ─────────────────────────────────────────
+   03 STATS + PILLARS
+───────────────────────────────────────── */
+#stats{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%)}
+#stats .green-glow{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,hsl(150 32% 20%) 0%,hsl(150 32% 30%) 100%);
+  opacity:.1;
+}
+#stats .stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:48px;
+  text-align:center;
+  width:100%;max-width:1000px;
+}
+.stat-big{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,6vw,80px);
+  font-weight:700;
+  line-height:1;
+}
+.stat-label{
+  font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg-muted);margin-top:12px;
+}
+/* Pillars */
+#stats .pillars-divider{
+  width:100%;max-width:1000px;
+  height:1px;background:var(--border);
+  margin:56px 0 48px;
+}
+#stats .pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  width:100%;max-width:1000px;
+}
+.pillar-card{
+  background:var(--card);
+  padding:36px 32px;
+  border-top:2px solid var(--border);
+  transition:border-color .25s;
+}
+.pillar-card:first-child{border-top-color:var(--primary)}
+.pillar-card:hover{border-top-color:var(--primary)}
+.pillar-num{
+  font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--primary);margin-bottom:12px;
+}
+.pillar-name{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;margin-bottom:12px;
+}
+.pillar-body{font-size:14px;color:var(--fg-muted);line-height:1.7}
+
+/* Nav dots */
+#navDots{
+  position:fixed;
+  top:50%;right:20px;
+  transform:translateY(-50%);
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+.nav-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);
+  border:none;cursor:pointer;padding:0;
+  transition:background .25s,transform .25s;
+}
+.nav-dot.active{background:var(--primary);transform:scale(1.4)}
+@media(max-width:600px){#navDots{display:none}}
+
+/* ─────────────────────────────────────────
+   04 PROBLEM
+───────────────────────────────────────── */
+#problem{background:var(--card)}
+#problem .problem-lead{
+  max-width:720px;margin:0 auto;
+  font-size:clamp(20px,2.8vw,32px);line-height:1.55;
+  color:var(--fg);font-weight:400;text-align:center;
+}
+#problem .impact-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-top:56px;width:100%;
+}
+.impact-card{
+  background:var(--bg);padding:36px 28px;
+  border-top:2px solid var(--border);
+  transition:border-color .25s;
+}
+.impact-card:hover{border-top-color:var(--primary)}
+.impact-stat{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4vw,64px);font-weight:700;line-height:1;margin-bottom:6px;
+}
+.impact-lbl{
+  font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--fg-muted);margin-bottom:20px;display:block;
+}
+.impact-body{font-size:14px;color:var(--fg-muted);line-height:1.7;margin-top:16px}
+/* Bar visual */
+.vis-bar-wrap{height:8px;background:var(--border);border-radius:4px}
+.vis-bar{height:100%;border-radius:4px;background:var(--primary);width:0;transition:width 1.2s ease .3s}
+.anim.visible .vis-bar{width:73%}
+/* Ring visual */
+.vis-ring{display:block;margin:4px 0}
+.ring-fill{transition:stroke-dashoffset 1.2s ease .3s}
+/* Trend bars */
+.vis-trend{display:flex;align-items:flex-end;gap:5px;height:44px;margin:4px 0}
+.vis-trend-bar{flex:1;border-radius:2px 2px 0 0;background:var(--border);height:20%;transition:height 1s ease,background 1s ease}
+.anim.visible .vis-trend-bar.t1{height:20%;background:var(--primary)}
+.anim.visible .vis-trend-bar.t2{height:45%;background:var(--primary);transition-delay:.1s}
+.anim.visible .vis-trend-bar.t3{height:70%;background:var(--primary);transition-delay:.2s}
+.anim.visible .vis-trend-bar.t4{height:100%;background:var(--primary);transition-delay:.3s}
+@media(max-width:700px){#problem .impact-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────
+   05 WHAT WE BRING TO THE FLOOR (flip cards)
+───────────────────────────────────────── */
+#activations{background:var(--bg)}
+#activations .flip-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:52px;
+  width:100%;
+}
+/* 3D flip card */
+.flip-card{
+  perspective:1200px;
+  cursor:pointer;
+  min-height:320px;
+}
+.flip-inner{
+  position:relative;
+  width:100%;height:100%;
+  min-height:320px;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+/* Front */
+.flip-front{
+  background:var(--muted);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;
+  transition:border-color .25s;
+}
+.flip-card:hover .flip-front{border-color:rgba(200,151,58,.4)}
+.flip-front-img{
+  flex:1;
+  background:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  color:var(--fg-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  position:relative;overflow:hidden;
+  min-height:200px;
+}
+.flip-front-img img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+.flip-front-img svg{position:relative;z-index:1;opacity:.35}
+.flip-front-img span{position:relative;z-index:1}
+.flip-front-footer{
+  padding:20px 24px;
+  background:var(--card);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.flip-front-name{
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+}
+.flip-hint{
+  font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);display:flex;align-items:center;gap:6px;flex-shrink:0;
+}
+.flip-hint svg{color:var(--primary)}
+/* Back */
+.flip-back{
+  background:var(--deep-green,hsl(150 32% 20%));
+  border:1px solid rgba(200,151,58,.25);
+  transform:rotateY(180deg);
+  display:flex;flex-direction:column;
+  padding:32px;
+}
+.flip-back-tag{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:14px;
+}
+.flip-back-title{
+  font-family:'Playfair Display',serif;font-size:24px;font-weight:700;
+  margin-bottom:16px;line-height:1.2;
+}
+.flip-back-body{
+  font-size:14px;line-height:1.75;color:rgba(245,240,230,.75);flex:1;
+}
+.flip-back-close{
+  margin-top:20px;font-size:11px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+}
+@media(max-width:900px){#activations .flip-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────
+   07 HOW IT WORKS
+───────────────────────────────────────── */
+#how{background:var(--card)}
+#how .steps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+  text-align:center;
+  margin-top:48px;
+  position:relative;
+}
+#how .connector{
+  position:absolute;
+  top:40px;left:0;right:0;
+  height:1px;background:var(--border);
+}
+#how .step-icon{
+  position:relative;z-index:2;
+  margin:0 auto 20px;
+}
+.step-num{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:6px;
+}
+.step-title{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:700;margin-bottom:10px;
+}
+
+/* ─────────────────────────────────────────
+   07 GALLERY
+───────────────────────────────────────── */
+/* ── MOMENTS GALLERY ── */
+#gallery,#gallery-alt{background:var(--bg)}
+.moments-grid{display:grid;gap:2px;margin-top:48px;width:100%}
+.moments-2x2{grid-template-columns:repeat(2,1fr)}
+.moments-1x4{grid-template-columns:repeat(4,1fr)}
+.moment-tile{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--card);border-top:2px solid var(--border);
+  transition:border-color .25s;height:360px;
+}
+.moments-1x4 .moment-tile{height:420px}
+.moment-tile:hover{border-top-color:var(--primary)}
+.moment-ghost{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,52px);font-weight:900;
+  color:var(--fg);opacity:.1;text-align:center;padding:20px;z-index:1;
+  pointer-events:none;line-height:1.1;transition:opacity .35s;
+}
+.moment-tile:hover .moment-ghost{opacity:.04}
+.moment-scroll{
+  position:absolute;inset:0;z-index:2;overflow:hidden;
+  opacity:0;transition:opacity .4s;
+}
+.moment-tile:hover .moment-scroll{opacity:1}
+.moment-strip{
+  display:flex;flex-direction:column;
+  animation:scrollStrip 14s linear infinite;
+}
+.moment-strip img{width:100%;height:360px;object-fit:cover;flex-shrink:0;display:block}
+.moments-1x4 .moment-strip img{height:420px}
+.moment-strip .ph-slide{
+  width:100%;height:360px;flex-shrink:0;
+  background:var(--muted);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  color:var(--fg-muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+}
+.moments-1x4 .moment-strip .ph-slide{height:420px}
+.moment-label{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:16px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
+  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);opacity:0;transition:opacity .35s;
+}
+.moment-tile:hover .moment-label{opacity:1}
+@keyframes scrollStrip{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@media(max-width:700px){.moments-2x2,.moments-1x4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.moments-2x2,.moments-1x4{grid-template-columns:1fr}}
+
+
+/* ─────────────────────────────────────────
+   08 VALUE
+───────────────────────────────────────── */
+#value{background:var(--card)}
+#value .value-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  margin-top:48px;
+}
+#value .value-row{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  padding:28px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  transition:border-color .25s;
+}
+#value .value-row:hover{border-color:rgba(200,151,58,.4)}
+#value .value-row.left-anim{transform:translateX(-40px)}
+#value .value-row.right-anim{transform:translateX(40px)}
+
+/* ─────────────────────────────────────────
+   09 PACKAGES
+───────────────────────────────────────── */
+#packages{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%);padding-bottom:80px}
+#packages .pkg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:48px;
+}
+.pkg-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.pkg-card.featured{
+  border-color:var(--primary);
+  box-shadow:0 0 40px -12px rgba(200,151,58,.3);
+}
+.pkg-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--primary);color:var(--primary-fg);
+  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:5px 16px;border-radius:100px;white-space:nowrap;
+}
+.pkg-tier{
+  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg-muted);
+}
+.pkg-name{
+  font-family:'Playfair Display',serif;
+  font-size:32px;font-weight:700;margin-top:6px;
+}
+.pkg-features{
+  margin-top:24px;display:flex;flex-direction:column;gap:12px;
+}
+.pkg-feature{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--fg-muted);line-height:1.4;
+}
+
+/* ─────────────────────────────────────────
+   10 CONTACT
+───────────────────────────────────────── */
+#contact{background:var(--card)}
+#contact .dot-overlay{
+  position:absolute;inset:0;
+  opacity:.02;
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+#contact .contact-links{
+  display:flex;flex-wrap:wrap;
+  gap:32px;justify-content:center;
+  margin-top:48px;
+}
+.contact-link{
+  display:flex;align-items:center;gap:10px;
+  font-size:16px;
+  transition:color .2s;
+}
+.contact-link:hover{color:var(--primary)}
+.contact-link svg{color:var(--primary)}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:900px){
+  #stats .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  #stats .pillars-grid{grid-template-columns:1fr}
+  #bring .cards-grid{grid-template-columns:1fr}
+  #how .steps-grid{grid-template-columns:1fr 1fr}
+  #how .connector{display:none}
+  #packages .pkg-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .snap-section{padding:80px 16px}
+  #stats .stats-grid{grid-template-columns:1fr 1fr}
+  #how .steps-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+
+<main class="snap-container" id="snapContainer">
+
+  <!-- ── HERO ── -->
+  <section class="snap-section" style="background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%);">
+    <div class="inner-sm">
+      <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:20px">Sponsor Activation · Dallas, TX</p>
+      <h1 class="display" style="font-size:clamp(40px,7vw,84px);line-height:1.05;color:var(--fg);margin-bottom:24px">Mind&nbsp;Over&nbsp;Merlot</h1>
+      <p class="display" style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,3vw,32px);color:var(--primary);margin-bottom:32px">The sold-out Dallas trivia night with a diaspora audience worth activating.</p>
+      <p style="font-size:18px;line-height:1.6;color:var(--fg-muted);max-width:640px;margin:0 auto 40px">Six consecutive sold-out events. 100 attendees a room. Africans, Caribbean, and Black diaspora adults 24–35 with real spend. This is where your brand shows up.</p>
+      <a href="#book" style="display:inline-block;background:var(--primary);color:var(--primary-fg);padding:16px 36px;border-radius:var(--radius);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:14px">Book a Season Sponsor Slot</a>
+      <p style="margin-top:20px;font-size:13px;color:var(--fg-muted)">Reply to this deck with a preferred event date. We'll take it from there.</p>
+    </div>
+  </section>
+
+  <!-- ── THE ROOM ── -->
+  <section class="snap-section" style="background:var(--card)">
+    <div class="inner">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;align-items:start">
+        <div>
+          <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:12px">The Room</p>
+          <h2 class="display" style="font-size:clamp(32px,4.5vw,56px);line-height:1.1;color:var(--fg);margin-bottom:24px">Not a mixer. Not a night out.<br/>A ticketed cultural anchor.</h2>
+          <p style="font-size:17px;line-height:1.6;color:var(--fg-muted);margin-bottom:16px">Mind Over Merlot has been a Dallas fixture since 2023. Six sold-out installments. 100 attendees a room. Every event ends the same way: photos, exchange numbers, "when's the next one?"</p>
+          <p style="font-size:17px;line-height:1.6;color:var(--fg-muted)">Your brand doesn't have to interrupt to earn attention. It gets built into the trivia, the toast round, the prize table, and the recap post. Native placement, not a banner.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:var(--muted);border-radius:var(--radius);padding:24px;border:1px solid var(--border)">
+            <p class="display" style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:var(--primary);margin-bottom:6px">100</p>
+            <p style="font-size:14px;color:var(--fg-muted)">Attendees per event, sold out at the door</p>
+          </div>
+          <div style="background:var(--muted);border-radius:var(--radius);padding:24px;border:1px solid var(--border)">
+            <p class="display" style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:var(--primary);margin-bottom:6px">4.9</p>
+            <p style="font-size:14px;color:var(--fg-muted)">Post-event survey rating across 6 events</p>
+          </div>
+          <div style="background:var(--muted);border-radius:var(--radius);padding:24px;border:1px solid var(--border)">
+            <p class="display" style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:var(--primary);margin-bottom:6px">3K+</p>
+            <p style="font-size:14px;color:var(--fg-muted)">IG followers · 10K+ monthly organic reach</p>
+          </div>
+          <div style="background:var(--muted);border-radius:var(--radius);padding:24px;border:1px solid var(--border)">
+            <p class="display" style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:var(--primary);margin-bottom:6px">2K+</p>
+            <p style="font-size:14px;color:var(--fg-muted)">Email subscribers · 8–12% ticket-link CTR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AUDIENCE ── -->
+  <section class="snap-section">
+    <div class="inner-sm">
+      <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:16px">The Audience</p>
+      <h2 class="display" style="font-size:clamp(32px,4.5vw,56px);line-height:1.1;color:var(--fg);margin-bottom:32px">The DFW diaspora middle spot most brands miss.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;text-align:left;margin-top:32px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:10px">24–35, professional</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">Working adults with disposable income, not a $5-cover college crowd.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:10px">Diaspora-first</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">African, Caribbean, and Black American. The culturally aligned audience premium brands pay agencies to reach.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:10px">Real spend</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">They buy the ticket, buy the drinks, buy the food, and tip. Avg per-head bar tab at past events tracks in the $40+ range.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:10px">Repeat by design</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">They don't check in and leave. They come to meet people. That's what makes them come back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT SPONSORS GET ── -->
+  <section class="snap-section" style="background:var(--card)">
+    <div class="inner">
+      <div style="text-align:center;margin-bottom:48px">
+        <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:16px">What You Get</p>
+        <h2 class="display" style="font-size:clamp(32px,4.5vw,56px);line-height:1.1;color:var(--fg)">Five activation surfaces per event.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div style="background:var(--muted);border-radius:var(--radius);padding:28px;border-top:3px solid var(--primary)">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">01 · Prize Sponsor</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:12px">Trivia winners take home your product.</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">Every round has a moment where the MC hands your product to a winner in front of the room. Your brand becomes the reward.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:28px;border-top:3px solid var(--primary)">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">02 · Toast Round</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:12px">A branded moment in the run of show.</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">10 minutes of programming named after your brand ("Uncle Nearest toast round"). Your product in every hand at the same moment.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:28px;border-top:3px solid var(--primary)">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">03 · Mic Time</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:12px">A live brand talk during halftime.</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">Your rep on the mic or an MC-delivered brand moment. Warm, in-context, not an ad break.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:28px;border-top:3px solid var(--primary)">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">04 · IG Story Chain</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:12px">Real-time coverage across the night.</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">3+ IG stories the day of, tagging your brand, plus a co-branded feed post in the pre-event promo and a recap post after.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:28px;border-top:3px solid var(--primary)">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">05 · Post-Event Report</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:12px">The ROI numbers, in writing.</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">Attendance, IG reach, story taps, opt-ins collected on your behalf. Everything you need to renew internally.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:28px;border-top:3px solid var(--green)">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px">Bonus · Signage</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:12px">Entrance + table tents in your brand.</p>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-muted)">On-site signage bearing your logo at the entrance and on every trivia team table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PACKAGES ── -->
+  <section class="snap-section">
+    <div class="inner">
+      <div style="text-align:center;margin-bottom:48px">
+        <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:16px">Packages</p>
+        <h2 class="display" style="font-size:clamp(32px,4.5vw,56px);line-height:1.1;color:var(--fg)">Four ways in. Pick your fit.</h2>
+        <p style="font-size:16px;color:var(--fg-muted);margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto">Barter unlocks the door. Season Sponsor owns the calendar.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--fg-muted);font-weight:700;margin-bottom:12px">Barter</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--fg);margin-bottom:8px">$0 cash</p>
+          <p style="font-size:13px;color:var(--fg-muted);margin-bottom:20px">+ product or service, retail value ~$500–$1,500</p>
+          <ul style="font-size:14px;color:var(--fg-muted);line-height:1.8;list-style:none;padding:0">
+            <li>· Product placement at 1 event</li>
+            <li>· 1 co-branded feed post</li>
+            <li>· 3 IG story mentions day-of</li>
+            <li>· Recap post tagging your brand</li>
+            <li>· Attendance + reach report</li>
+          </ul>
+          <p style="font-size:12px;color:var(--fg-muted);margin-top:20px;font-style:italic">A test drive to prove the ROI story before the paid ask.</p>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--primary);border-radius:var(--radius);padding:28px;position:relative">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">Supporting</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--fg);margin-bottom:8px">$2,000</p>
+          <p style="font-size:13px;color:var(--fg-muted);margin-bottom:20px">Single MoM event · sold out at 100 attendees</p>
+          <ul style="font-size:14px;color:var(--fg-muted);line-height:1.8;list-style:none;padding:0">
+            <li>· Logo on all event promo</li>
+            <li>· 1 dedicated pre-event IG post</li>
+            <li>· 3 IG story mentions day-of</li>
+            <li>· Entrance signage + branded table</li>
+            <li>· 10-min branded activation (toast round)</li>
+            <li>· Recap post + tagged photos</li>
+            <li>· Full attendance + reach report</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--fg-muted);font-weight:700;margin-bottom:12px">Presenting</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--fg);margin-bottom:8px">$5,000+</p>
+          <p style="font-size:13px;color:var(--fg-muted);margin-bottom:20px">Own one MoM event · title placement</p>
+          <ul style="font-size:14px;color:var(--fg-muted);line-height:1.8;list-style:none;padding:0">
+            <li>· "Presented by [Brand]" on every asset</li>
+            <li>· 2 pre-event IG posts + email blast feature</li>
+            <li>· 6 IG story mentions day-of</li>
+            <li>· 2 activation moments (toast + prize round)</li>
+            <li>· 15-min mic time / brand story</li>
+            <li>· Recap Reel co-produced</li>
+            <li>· Opt-in list share (SMS/email)</li>
+          </ul>
+        </div>
+
+        <div style="background:linear-gradient(180deg,var(--green-dark),hsl(150 32% 15%));border:1px solid var(--green);border-radius:var(--radius);padding:28px">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:12px">Season Sponsor</p>
+          <p class="display" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:var(--fg);margin-bottom:8px">Custom</p>
+          <p style="font-size:13px;color:var(--fg-muted);margin-bottom:20px">3+ MoM events across the season · flat annual fee</p>
+          <ul style="font-size:14px;color:var(--fg-muted);line-height:1.8;list-style:none;padding:0">
+            <li>· Everything in Presenting, every event</li>
+            <li>· Category exclusivity in DFW</li>
+            <li>· Year-in-review case study you own</li>
+            <li>· First refusal on Group DTX side events</li>
+            <li>· Co-branded landing page on thegroupdtx.com</li>
+          </ul>
+          <p style="font-size:12px;color:var(--primary);margin-top:20px;font-weight:600">Ask for the season deck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROOF ── -->
+  <section class="snap-section" style="background:var(--card)">
+    <div class="inner-sm">
+      <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:16px">Track Record</p>
+      <h2 class="display" style="font-size:clamp(32px,4.5vw,56px);line-height:1.1;color:var(--fg);margin-bottom:48px">Six sold-out events. Zero refunds asked.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;text-align:left;margin-bottom:40px">
+        <div style="background:var(--muted);border-radius:var(--radius);padding:24px">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:10px">2023–2026</p>
+          <p style="font-size:15px;line-height:1.55;color:var(--fg)">Six consecutive sold-out MoM installments in Dallas.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:24px">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:10px">Digital Reach</p>
+          <p style="font-size:15px;line-height:1.55;color:var(--fg)">3K+ IG · 10K+ monthly reach · 2K+ email subscribers.</p>
+        </div>
+        <div style="background:var(--muted);border-radius:var(--radius);padding:24px">
+          <p style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:10px">Sister Franchise</p>
+          <p style="font-size:15px;line-height:1.55;color:var(--fg)">Summer Olympics DTX: 2-year franchise, 3 Dallas venue partners.</p>
+        </div>
+      </div>
+      <blockquote style="border-left:3px solid var(--primary);padding:20px 28px;text-align:left;background:var(--muted);border-radius:var(--radius);margin-top:32px">
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.5;color:var(--fg);margin-bottom:12px">"Testimonial placeholder. Pull 2 to 3 short quotes from post-event surveys and past brand partners. Include a photo pull-out per quote before sending this deck live."</p>
+        <p style="font-size:13px;color:var(--fg-muted)">· [Attendee or brand partner]</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── SAMPLE NIGHT ── -->
+  <section class="snap-section">
+    <div class="inner">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div>
+          <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:16px">A Sample Night</p>
+          <h2 class="display" style="font-size:clamp(32px,4.5vw,56px);line-height:1.1;color:var(--fg);margin-bottom:24px">Where your brand shows up in the run of show.</h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--fg-muted)">Not a logo on a wall. Not a banner nobody looks at. Your brand woven into the moments the room remembers.</p>
+        </div>
+        <div>
+          <ol style="list-style:none;padding:0;margin:0;font-size:15px;line-height:1.6;color:var(--fg)">
+            <li style="padding:16px 20px;background:var(--card);border-left:3px solid var(--primary);border-radius:6px;margin-bottom:12px">
+              <span style="color:var(--primary);font-weight:700;font-family:'Playfair Display',serif">7:00 PM</span> · Doors open, teams settle in with your product on the entrance table
+            </li>
+            <li style="padding:16px 20px;background:var(--card);border-left:3px solid var(--primary);border-radius:6px;margin-bottom:12px">
+              <span style="color:var(--primary);font-weight:700;font-family:'Playfair Display',serif">7:30 PM</span> · Round 1 · Diaspora Trivia · MC opens with sponsor thank-you
+            </li>
+            <li style="padding:16px 20px;background:var(--card);border-left:3px solid var(--green);border-radius:6px;margin-bottom:12px">
+              <span style="color:var(--green);font-weight:700;font-family:'Playfair Display',serif">8:00 PM</span> · Toast Round · "The [Brand] round" · your product in every hand
+            </li>
+            <li style="padding:16px 20px;background:var(--card);border-left:3px solid var(--primary);border-radius:6px;margin-bottom:12px">
+              <span style="color:var(--primary);font-weight:700;font-family:'Playfair Display',serif">8:30 PM</span> · Halftime · Karaoke break · 60-second brand story from the mic
+            </li>
+            <li style="padding:16px 20px;background:var(--card);border-left:3px solid var(--green);border-radius:6px;margin-bottom:12px">
+              <span style="color:var(--green);font-weight:700;font-family:'Playfair Display',serif">9:00 PM</span> · Rounds 4 &amp; 5 · Prizes = your product for the winning team
+            </li>
+            <li style="padding:16px 20px;background:var(--card);border-left:3px solid var(--primary);border-radius:6px;margin-bottom:12px">
+              <span style="color:var(--primary);font-weight:700;font-family:'Playfair Display',serif">9:30 PM</span> · Photos, group shot with sponsor signage, tagged next morning
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="snap-section" id="book" style="background:linear-gradient(180deg,hsl(0 0% 5%),hsl(150 32% 12%))">
+    <div class="inner-sm">
+      <p style="font-family:'Inter',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--primary);font-weight:600;font-size:12px;margin-bottom:20px">Book The Room</p>
+      <h2 class="display" style="font-size:clamp(36px,5.5vw,68px);line-height:1.05;color:var(--fg);margin-bottom:24px">Own the next Mind Over Merlot.</h2>
+      <p style="font-size:18px;line-height:1.6;color:var(--fg-muted);margin-bottom:36px">Reply with the tier you want and a preferred event window. We'll come back within 48 hours with a proposed date, run of show, and contract.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:32px 0">
+        <a href="mailto:hi@thegroupdtx.com?subject=Mind%20Over%20Merlot%20Sponsorship" style="background:var(--primary);color:var(--primary-fg);padding:18px 24px;border-radius:var(--radius);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:13px">Email us</a>
+        <a href="https://instagram.com/thegroupdtx" style="background:transparent;color:var(--fg);padding:18px 24px;border-radius:var(--radius);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:13px;border:1px solid var(--border)">@thegroupdtx</a>
+        <a href="https://thegroupdtx.com" style="background:transparent;color:var(--fg);padding:18px 24px;border-radius:var(--radius);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:13px;border:1px solid var(--border)">thegroupdtx.com</a>
+      </div>
+
+      <p style="margin-top:32px;font-size:13px;color:var(--fg-muted)">The Group DTX · Dallas, Texas · Founded 2023</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const container = document.getElementById('snapContainer');
+const progressBar = document.getElementById('progressBar');
+
+// ── All sections for nav dots
+const sections = Array.from(document.querySelectorAll('.snap-section'));
+const navDotsEl = document.getElementById('navDots');
+
+// Build nav dots
+sections.forEach((sec, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'nav-dot';
+  dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+  dot.addEventListener('click', () => {
+    sec.scrollIntoView({ behavior: 'smooth' });
+  });
+  navDotsEl.appendChild(dot);
+});
+const dots = navDotsEl.querySelectorAll('.nav-dot');
+
+// ── Progress bar + active dot
+function onScroll() {
+  const scrollTop = container.scrollTop;
+  const scrollHeight = container.scrollHeight - container.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+
+  // Active dot: which section is most visible
+  const mid = scrollTop + container.clientHeight / 2;
+  let activeIdx = 0;
+  sections.forEach((sec, i) => {
+    if (sec.offsetTop <= mid) activeIdx = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+}
+container.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── Scroll reveal
+const animEls = document.querySelectorAll('.anim');
+const revealIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      const ring = e.target.querySelector('.ring-fill');
+      if (ring) setTimeout(() => { ring.style.strokeDashoffset = '45'; }, 300);
+    }
+  });
+}, { root: container, threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+animEls.forEach(el => revealIo.observe(el));
+
+// ── Count-up for stats
+function countUp(el, target, suffix) {
+  let start = 0;
+  const steps = 60, interval = 1400 / steps, inc = target / steps;
+  const timer = setInterval(() => {
+    start = Math.min(start + inc, target);
+    el.textContent = Math.floor(start) + suffix;
+    if (start >= target) clearInterval(timer);
+  }, interval);
+}
+let counted = false;
+const statsIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('[data-target]').forEach(el => {
+        countUp(el, parseInt(el.dataset.target), el.dataset.suffix);
+      });
+    }
+  });
+}, { root: container, threshold: 0.3 });
+statsIo.observe(document.getElementById('stats'));
+
+// ── Chevron scrolls to next slide
+document.querySelector('.chevron-wrap').style.cursor = 'pointer';
+document.querySelector('.chevron-wrap').addEventListener('click', () => {
+  document.getElementById('who').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ── Who We Are carousel
+(function() {
+  const track = document.getElementById('whoCarousel');
+  if (!track) return;
+  const slides = track.querySelectorAll('.carousel-slide');
+  const dotsWrap = document.getElementById('whoDots');
+  const perView = window.innerWidth <= 700 ? 1 : 3;
+  const total = slides.length;
+  let cur = 0;
+
+  // Build dots
+  const cdots = [];
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Photo ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+    cdots.push(d);
+  }
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    const slideW = slides[0].getBoundingClientRect().width + 16;
+    track.style.transform = 'translateX(-' + (cur * slideW) + 'px)';
+    cdots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  document.getElementById('whoNext').addEventListener('click', () => goTo(cur + 1));
+  document.getElementById('whoPrev').addEventListener('click', () => goTo(cur - 1));
+
+  // Auto-advance
+  setInterval(() => goTo(cur + 1), 4000);
+})();
+
+// ── Flip cards
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+</script>
+</body>
+</html>
