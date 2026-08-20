@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Group DTX: Summer Olympics 2026 Sponsorship</title>
 <meta name="description" content="Sponsor Summer Olympics 2026, The Group DTX's flagship field day in Dallas, Texas. Get your brand on the field, in the content, and in the room." />
+<meta property="og:title" content="Summer Olympics 2026 &middot; The Group DTX" />
+<meta property="og:description" content="Sponsor Summer Olympics 2026, a full day of team competition for The Group DTX's Dallas community." />
+<meta property="og:image" content="https://thegroupdtx.com/assets/so2026/flyer-chioma.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://thegroupdtx.com/assets/so2026/flyer-chioma.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
@@ -542,36 +547,6 @@ body{
 @media(max-width:900px){#activations .flip-grid{grid-template-columns:1fr}}
 
 /* ─────────────────────────────────────────
-   06 HOW THE DAY UNFOLDS
-───────────────────────────────────────── */
-#how{background:var(--card)}
-#how .steps-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:32px;
-  text-align:center;
-  margin-top:48px;
-  position:relative;
-}
-#how .connector{
-  position:absolute;
-  top:40px;left:0;right:0;
-  height:1px;background:var(--border);
-}
-#how .step-icon{
-  position:relative;z-index:2;
-  margin:0 auto 20px;
-}
-.step-num{
-  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--primary);margin-bottom:6px;
-}
-.step-title{
-  font-family:'Playfair Display',serif;
-  font-size:20px;font-weight:700;margin-bottom:10px;
-}
-
-/* ─────────────────────────────────────────
    07 GALLERY
 ───────────────────────────────────────── */
 /* ── MOMENTS GALLERY ── */
@@ -590,14 +565,12 @@ body{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,52px);font-weight:900;
   color:var(--fg);opacity:.1;text-align:center;padding:20px;z-index:1;
-  pointer-events:none;line-height:1.1;transition:opacity .35s;
+  pointer-events:none;line-height:1.1;
 }
-.moment-tile:hover .moment-ghost{opacity:.04}
+/* Photos are the story here, so the strip is visible by default; hover just deepens the label. */
 .moment-scroll{
   position:absolute;inset:0;z-index:2;overflow:hidden;
-  opacity:0;transition:opacity .4s;
 }
-.moment-tile:hover .moment-scroll{opacity:1}
 .moment-strip{
   display:flex;flex-direction:column;
   animation:scrollStrip 14s linear infinite;
@@ -616,9 +589,8 @@ body{
   padding:16px 20px;
   background:linear-gradient(transparent,rgba(0,0,0,.7));
   font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--primary);opacity:0;transition:opacity .35s;
+  color:var(--primary);
 }
-.moment-tile:hover .moment-label{opacity:1}
 @keyframes scrollStrip{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
 @media(max-width:700px){.moments-2x2,.moments-1x4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){.moments-2x2,.moments-1x4{grid-template-columns:1fr}}
@@ -649,52 +621,7 @@ body{
 #value .value-row.right-anim{transform:translateX(40px)}
 
 /* ─────────────────────────────────────────
-   09 PACKAGES
-───────────────────────────────────────── */
-#packages{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%);padding-bottom:80px}
-#packages .pkg-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  margin-top:48px;
-}
-.pkg-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:32px;
-  position:relative;
-  display:flex;
-  flex-direction:column;
-}
-.pkg-card.featured{
-  border-color:var(--primary);
-  box-shadow:0 0 40px -12px rgba(200,151,58,.3);
-}
-.pkg-badge{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--primary);color:var(--primary-fg);
-  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-  padding:5px 16px;border-radius:100px;white-space:nowrap;
-}
-.pkg-tier{
-  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--fg-muted);
-}
-.pkg-name{
-  font-family:'Playfair Display',serif;
-  font-size:32px;font-weight:700;margin-top:6px;
-}
-.pkg-features{
-  margin-top:24px;display:flex;flex-direction:column;gap:12px;
-}
-.pkg-feature{
-  display:flex;align-items:flex-start;gap:10px;
-  font-size:14px;color:var(--fg-muted);line-height:1.4;
-}
-
-/* ─────────────────────────────────────────
-   10 CONTACT
+   09 CONTACT
 ───────────────────────────────────────── */
 #contact{background:var(--card)}
 #contact .dot-overlay{
@@ -723,20 +650,10 @@ body{
   #stats .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   #stats .pillars-grid{grid-template-columns:1fr}
   #bring .cards-grid{grid-template-columns:1fr}
-  #how .steps-grid{grid-template-columns:1fr 1fr}
-  #how .connector{display:none}
-  #packages .pkg-grid{grid-template-columns:1fr}
-}
-/* Touch devices have no hover, so reveal the photo strips by default */
-@media(hover:none){
-  .moment-scroll{opacity:1}
-  .moment-ghost{opacity:0}
-  .moment-label{opacity:1}
 }
 @media(max-width:560px){
   .snap-section{padding:80px 16px}
   #stats .stats-grid{grid-template-columns:1fr 1fr}
-  #how .steps-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -758,7 +675,7 @@ body{
     <p class="sub-tag">Year Four</p>
     <div class="gold-line" style="width:128px;margin:28px auto"></div>
     <p class="body-lg" style="max-width:480px;margin:0 auto">A full day of team competition for Dallas' community of young Black professionals. Jerseys, medals, and a closing celebration.</p>
-    <a href="#packages" class="hero-cta">Become a Sponsor</a>
+    <a href="#who" class="hero-cta">Become a Sponsor</a>
     <div class="chevron-wrap">
       <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="6 9 12 15 18 9"/>
@@ -776,41 +693,40 @@ body{
       <span class="eyebrow">The Event</span>
       <h2 class="headline">A Full Day of <span class="gold">Competition</span></h2>
       <div class="gold-line" style="width:80px"></div>
-      <p class="body-lg" style="margin-bottom:16px">Summer Olympics is The Group DTX's flagship field day, now in its fourth year. Teams compete across a full day of games built for adults who want to play hard and laugh harder, all leading up to jerseys, medals, and a closing celebration that brings the whole group back together.</p>
-      <p class="body-lg">This isn't a generic corporate field day. It's the same community that sells out our trivia nights, mixers, and gallery events, brought outside for a full day of team competition, culture, and connection. <strong style="color:var(--fg)">Your brand shows up where the community already is.</strong></p>
+      <p class="body-lg">Summer Olympics is The Group DTX's flagship field day, now in its fourth year: a full day of team competition, jerseys, medals, and a closing celebration for the same Dallas community that's sold out three years of trivia nights, mixers, and gallery events. <strong style="color:var(--fg)">Your brand shows up where the community already is.</strong></p>
     </div>
 
     <div class="carousel-wrap anim d2">
       <div class="carousel-track" id="whoCarousel">
         <div class="carousel-slide">
-          <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-lineup.jpg" alt="Teams lined up at Summer Olympics 2025" onerror="this.style.display='none'">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Event Photo</span>
+          <span>Teams lined up</span>
         </div>
         <div class="carousel-slide">
-          <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-team-sign.jpg" alt="Team spirit sign at Summer Olympics 2025" onerror="this.style.display='none'">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Event Photo</span>
+          <span>Team spirit sign</span>
         </div>
         <div class="carousel-slide">
-          <img src="assets/so2026/so25-03.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-action-1.jpg" alt="Team competition at Summer Olympics 2025" onerror="this.style.display='none'">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Event Photo</span>
+          <span>Team competition</span>
         </div>
         <div class="carousel-slide">
-          <img src="assets/so2026/so25-04.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-dodgeball.jpg" alt="Dodgeball at Summer Olympics 2025" onerror="this.style.display='none'">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Event Photo</span>
+          <span>Dodgeball</span>
         </div>
         <div class="carousel-slide">
-          <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-tugofwar.jpg" alt="Tug of war at Summer Olympics 2025" onerror="this.style.display='none'">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Event Photo</span>
+          <span>Tug of war</span>
         </div>
         <div class="carousel-slide">
-          <img src="assets/so2026/so25-06.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-trophy-night.jpg" alt="Closing celebration at Summer Olympics 2025" onerror="this.style.display='none'">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Event Photo</span>
+          <span>Closing celebration</span>
         </div>
       </div>
       <div class="carousel-nav">
@@ -839,7 +755,7 @@ body{
         <div class="stat-label">Events Produced</div>
       </div>
       <div class="anim d1" style="text-align:center">
-        <div class="stat-big gold" data-target="76" data-suffix="K">76K</div>
+        <div class="stat-big gold" data-target="100" data-suffix="K+">100K+</div>
         <div class="stat-label">Social Views</div>
       </div>
       <div class="anim d2" style="text-align:center">
@@ -936,7 +852,7 @@ body{
         <div class="flip-inner">
           <div class="flip-front">
             <div class="flip-front-img">
-              <img src="assets/so2026/so25-07.jpg" alt="On the field at Summer Olympics"
+              <img src="assets/so2026/so25-sprint.jpg" alt="On the field at Summer Olympics"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
               <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
@@ -964,7 +880,7 @@ body{
         <div class="flip-inner">
           <div class="flip-front">
             <div class="flip-front-img">
-              <img src="assets/so2026/so25-08.jpg" alt="Content capture at Summer Olympics"
+              <img src="assets/so2026/so25-cheer.jpg" alt="Content capture at Summer Olympics"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
               <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
@@ -992,7 +908,7 @@ body{
         <div class="flip-inner">
           <div class="flip-front">
             <div class="flip-front-img">
-              <img src="assets/so2026/so25-09.jpg" alt="Closing celebration at Summer Olympics"
+              <img src="assets/so2026/so25-trophy-night.jpg" alt="Closing celebration at Summer Olympics"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
               <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
@@ -1020,61 +936,6 @@ body{
 </section>
 
 <!-- ──────────────────────────────────────
-  06 HOW THE DAY UNFOLDS
-────────────────────────────────────────-->
-<section class="snap-section" id="how">
-  <div class="inner">
-    <div class="anim" style="text-align:center">
-      <span class="eyebrow">Run of Show</span>
-      <h2 class="headline">How the <span class="gold">Day</span> Unfolds</h2>
-    </div>
-    <div class="steps-grid">
-      <div class="connector"></div>
-      <div class="anim d1">
-        <div class="icon-circle step-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
-            <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-          </svg>
-        </div>
-        <div class="step-num">01</div>
-        <div class="step-title">Arrival &amp; Registration</div>
-        <p class="body-sm">Teams check in and get jerseys as the energy starts building. Your brand can be the first thing they see, on badges, signage, or in the welcome swag.</p>
-      </div>
-      <div class="anim d2">
-        <div class="icon-circle step-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
-            <path d="M4 22V4a2 2 0 0 1 2-2h11l-1.5 5L18 12H6"/>
-          </svg>
-        </div>
-        <div class="step-num">02</div>
-        <div class="step-title">Opening Ceremony</div>
-        <p class="body-sm">Teams are introduced and the day officially kicks off. This is where a sponsor gets a named mention and an MC shoutout in front of the full crowd.</p>
-      </div>
-      <div class="anim d3">
-        <div class="icon-circle step-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-          </svg>
-        </div>
-        <div class="step-num">03</div>
-        <div class="step-title">Team Competitions</div>
-        <p class="body-sm">The events run back to back with downtime between heats for people to talk. Your branded station or product lives right on the field, all day.</p>
-      </div>
-      <div class="anim d4">
-        <div class="icon-circle step-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
-          </svg>
-        </div>
-        <div class="step-num">04</div>
-        <div class="step-title">Closing Celebration &amp; Medals</div>
-        <p class="body-sm">Medals go out and the day wraps with everyone together. This is prime space for a branded moment and photo ops with the winning teams.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ──────────────────────────────────────
   07 GALLERY / PROOF
 ────────────────────────────────────────-->
 <section class="snap-section" id="gallery" style="flex-direction:column;padding-top:80px;padding-bottom:80px">
@@ -1082,7 +943,7 @@ body{
     <div class="anim" style="text-align:center">
       <span class="eyebrow">Proof</span>
       <h2 class="headline">2025 in <span class="gold">Motion</span></h2>
-      <p class="body-sm anim d1" style="max-width:480px;margin:12px auto 0">Real photos from the 2025 edition.</p>
+      <p class="body-sm anim d1" style="max-width:480px;margin:12px auto 0">Real photos and recap videos from the 2025 edition.</p>
     </div>
     <div class="moments-grid moments-2x2">
 
@@ -1090,12 +951,12 @@ body{
         <div class="moment-ghost">Team Competitions</div>
         <div class="moment-scroll">
           <div class="moment-strip">
-            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 team competition">
-            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 team competition">
-            <img src="assets/so2026/so25-03.jpg" alt="Summer Olympics 2025 team competition">
-            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 team competition">
-            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 team competition">
-            <img src="assets/so2026/so25-03.jpg" alt="Summer Olympics 2025 team competition">
+            <img src="assets/so2026/so25-tugofwar.jpg" alt="Summer Olympics 2025 tug of war">
+            <img src="assets/so2026/so25-sack-race.jpg" alt="Summer Olympics 2025 sack race">
+            <img src="assets/so2026/so25-relay.jpg" alt="Summer Olympics 2025 relay race">
+            <img src="assets/so2026/so25-tugofwar.jpg" alt="Summer Olympics 2025 tug of war">
+            <img src="assets/so2026/so25-sack-race.jpg" alt="Summer Olympics 2025 sack race">
+            <img src="assets/so2026/so25-relay.jpg" alt="Summer Olympics 2025 relay race">
           </div>
         </div>
         <div class="moment-label">Team Competitions</div>
@@ -1105,12 +966,12 @@ body{
         <div class="moment-ghost">Medals &amp; Closing</div>
         <div class="moment-scroll">
           <div class="moment-strip">
-            <img src="assets/so2026/so25-04.jpg" alt="Summer Olympics 2025 medal ceremony">
-            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 closing celebration">
-            <img src="assets/so2026/so25-06.jpg" alt="Summer Olympics 2025 closing celebration">
-            <img src="assets/so2026/so25-04.jpg" alt="Summer Olympics 2025 medal ceremony">
-            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 closing celebration">
-            <img src="assets/so2026/so25-06.jpg" alt="Summer Olympics 2025 closing celebration">
+            <img src="assets/so2026/so25-medal-bite.jpg" alt="Summer Olympics 2025 medal ceremony">
+            <img src="assets/so2026/so25-trophy-table.jpg" alt="Summer Olympics 2025 trophy">
+            <img src="assets/so2026/so25-trophy-night.jpg" alt="Summer Olympics 2025 closing celebration">
+            <img src="assets/so2026/so25-medal-bite.jpg" alt="Summer Olympics 2025 medal ceremony">
+            <img src="assets/so2026/so25-trophy-table.jpg" alt="Summer Olympics 2025 trophy">
+            <img src="assets/so2026/so25-trophy-night.jpg" alt="Summer Olympics 2025 closing celebration">
           </div>
         </div>
         <div class="moment-label">Medals &amp; Closing</div>
@@ -1120,12 +981,12 @@ body{
         <div class="moment-ghost">The Community</div>
         <div class="moment-scroll">
           <div class="moment-strip">
-            <img src="assets/so2026/so25-07.jpg" alt="Summer Olympics 2025 community">
-            <img src="assets/so2026/so25-08.jpg" alt="Summer Olympics 2025 community">
-            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 community">
-            <img src="assets/so2026/so25-07.jpg" alt="Summer Olympics 2025 community">
-            <img src="assets/so2026/so25-08.jpg" alt="Summer Olympics 2025 community">
-            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 community">
+            <img src="assets/so2026/so25-group.jpg" alt="Summer Olympics 2025 team group photo">
+            <img src="assets/so2026/so25-huddle.jpg" alt="Summer Olympics 2025 team huddle">
+            <img src="assets/so2026/so25-team-sign.jpg" alt="Summer Olympics 2025 team spirit sign">
+            <img src="assets/so2026/so25-group.jpg" alt="Summer Olympics 2025 team group photo">
+            <img src="assets/so2026/so25-huddle.jpg" alt="Summer Olympics 2025 team huddle">
+            <img src="assets/so2026/so25-team-sign.jpg" alt="Summer Olympics 2025 team spirit sign">
           </div>
         </div>
         <div class="moment-label">The Community</div>
@@ -1135,12 +996,12 @@ body{
         <div class="moment-ghost">On-Site Activations</div>
         <div class="moment-scroll">
           <div class="moment-strip">
-            <img src="assets/so2026/so25-09.jpg" alt="Summer Olympics 2025 on-site activation">
-            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 on-site activation">
-            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 on-site activation">
-            <img src="assets/so2026/so25-09.jpg" alt="Summer Olympics 2025 on-site activation">
-            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 on-site activation">
-            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 on-site activation">
+            <img src="assets/so2026/so25-hydration.jpg" alt="Summer Olympics 2025 hydration station">
+            <img src="assets/so2026/so25-stretch.jpg" alt="Summer Olympics 2025 warmup">
+            <img src="assets/so2026/so25-brand-tee.jpg" alt="Summer Olympics 2025 branded team shirt">
+            <img src="assets/so2026/so25-hydration.jpg" alt="Summer Olympics 2025 hydration station">
+            <img src="assets/so2026/so25-stretch.jpg" alt="Summer Olympics 2025 warmup">
+            <img src="assets/so2026/so25-brand-tee.jpg" alt="Summer Olympics 2025 branded team shirt">
           </div>
         </div>
         <div class="moment-label">On-Site Activations</div>
@@ -1148,33 +1009,45 @@ body{
 
     </div>
 
-    <!-- Proof reels -->
+    <!-- Proof reels: recap videos on Instagram -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:40px">
       <a href="https://www.instagram.com/reel/CwOUlMFB71o/" target="_blank" rel="noopener" class="card anim d1" style="padding:0;overflow:hidden;display:block">
         <div style="position:relative;aspect-ratio:4/5;background:var(--muted)">
-          <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 highlight reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-action-1.jpg" alt="Summer Olympics 2025 recap reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="hsl(43 40% 56%)" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
         <div style="padding:20px 24px">
           <div class="flip-front-name" style="font-size:16px">2025 Highlights</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-muted)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="hsl(43 40% 56%)" stroke="none"/></svg>
+            Watch the recap on Instagram
+          </div>
         </div>
       </a>
       <a href="https://www.instagram.com/reel/C-qILituuKQ/" target="_blank" rel="noopener" class="card anim d2" style="padding:0;overflow:hidden;display:block">
         <div style="position:relative;aspect-ratio:4/5;background:var(--muted)">
-          <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 game day reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-dodgeball.jpg" alt="Summer Olympics 2025 game day recap reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="hsl(43 40% 56%)" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
         <div style="padding:20px 24px">
           <div class="flip-front-name" style="font-size:16px">Game Day Energy</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-muted)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="hsl(43 40% 56%)" stroke="none"/></svg>
+            Watch the recap on Instagram
+          </div>
         </div>
       </a>
       <a href="https://www.instagram.com/reel/DO6SeVrDq2k/" target="_blank" rel="noopener" class="card anim d3" style="padding:0;overflow:hidden;display:block">
         <div style="position:relative;aspect-ratio:4/5;background:var(--muted)">
-          <img src="assets/so2026/so25-09.jpg" alt="Summer Olympics 2025 closing celebration reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <img src="assets/so2026/so25-trophy-night.jpg" alt="Summer Olympics 2025 closing celebration recap reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="hsl(43 40% 56%)" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         </div>
         <div style="padding:20px 24px">
           <div class="flip-front-name" style="font-size:16px">Closing Celebration</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-muted)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="hsl(43 40% 56%)" stroke="none"/></svg>
+            Watch the recap on Instagram
+          </div>
         </div>
       </a>
     </div>
@@ -1218,7 +1091,7 @@ body{
         </div>
         <div>
           <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Real Engagement</h3>
-          <p class="body-sm">76K social views across our platforms means your presence on-site becomes content that keeps working after the day ends.</p>
+          <p class="body-sm">100K+ social views across our platforms means your presence on-site becomes content that keeps working after the day ends.</p>
         </div>
       </div>
       <div class="value-row anim left d3">
@@ -1248,140 +1121,7 @@ body{
 </section>
 
 <!-- ──────────────────────────────────────
-  09 PACKAGES
-────────────────────────────────────────-->
-<section class="snap-section" id="packages">
-  <div class="inner">
-    <div class="anim" style="text-align:center">
-      <span class="eyebrow">Partnership Packages</span>
-      <h2 class="headline">Choose Your <span class="gold">Level</span></h2>
-    </div>
-    <div class="pkg-grid">
-
-      <!-- Silver -->
-      <div class="pkg-card anim d1">
-        <div style="text-align:center;margin-bottom:24px">
-          <div class="pkg-tier">In-Kind Partner</div>
-          <div class="pkg-name">Silver</div>
-          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
-        </div>
-        <ul class="pkg-features">
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Product or gear on the field
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on event signage
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            One social media mention
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Team-photo placement
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Post-event recap photos
-          </li>
-        </ul>
-      </div>
-
-      <!-- Gold (featured) -->
-      <div class="pkg-card featured anim d2">
-        <div class="pkg-badge">Most Popular</div>
-        <div style="text-align:center;margin-bottom:24px">
-          <div class="pkg-tier">Food, Drink or Cash Partner</div>
-          <div class="pkg-name">Gold</div>
-          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
-        </div>
-        <ul class="pkg-features">
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Everything in Silver, plus:
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Branded station or sampling space on-site
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on team jerseys or bibs
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Named presence at the closing celebration
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Social campaign across the build-up and event day
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Spot in the event recap video
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Co-branded signage
-          </li>
-        </ul>
-      </div>
-
-      <!-- Diamond -->
-      <div class="pkg-card anim d3">
-        <div style="text-align:center;margin-bottom:24px">
-          <div class="pkg-tier">Category &amp; Title Partner</div>
-          <div class="pkg-name">Diamond</div>
-          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
-        </div>
-        <ul class="pkg-features">
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Everything in Gold, plus:
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Title billing on the event ("Summer Olympics 2026, presented by...")
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Category exclusivity
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on all event graphics and the official flyer
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Dedicated MC callouts throughout the day
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Custom-branded competition or trophy
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Professional photo and video assets you can use
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Co-branded merch
-          </li>
-          <li class="pkg-feature">
-            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Post-event recap report
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ──────────────────────────────────────
-  10 CONTACT
+  09 CONTACT
 ────────────────────────────────────────-->
 <section class="snap-section" id="contact">
   <div class="dot-overlay"></div>
