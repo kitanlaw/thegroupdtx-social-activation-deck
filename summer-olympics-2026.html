@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Group DTX: Summer Olympics 2026 Sponsorship</title>
+<meta name="description" content="Sponsor Summer Olympics 2026, The Group DTX's flagship field day in Dallas, Texas. Get your brand on the field, in the content, and in the room." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font:inherit}
+
+/* ── TOKENS ── */
+:root{
+  --bg:          hsl(0 0% 5%);
+  --card:        hsl(0 0% 8%);
+  --muted:       hsl(0 0% 14%);
+  --border:      hsl(0 0% 18%);
+  --fg:          hsl(40 33% 95%);
+  --fg-muted:    hsl(40 10% 60%);
+  --primary:     hsl(43 40% 56%);
+  --primary-fg:  hsl(0 0% 5%);
+  --green:       hsl(150 32% 30%);
+  --green-dark:  hsl(150 32% 20%);
+  --radius:      0.5rem;
+}
+
+/* ── PROGRESS BAR ── */
+#progressBar{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg,hsl(43 40% 46%),hsl(43 50% 70%),hsl(43 40% 56%));
+  z-index:1000;
+  transition:width .08s linear;
+  box-shadow:0 0 8px hsl(43 40% 56% / .5);
+}
+
+/* ── BASE ── */
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── SCROLL SNAP CONTAINER ── */
+.snap-container{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+}
+
+/* ── SECTION BASE ── */
+.snap-section{
+  scroll-snap-align:start;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 24px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── INNER WIDTHS ── */
+.inner{width:100%;max-width:1200px;margin:0 auto}
+.inner-sm{width:100%;max-width:800px;margin:0 auto;text-align:center}
+.inner-xs{width:100%;max-width:600px;margin:0 auto;text-align:center}
+
+/* ── TYPOGRAPHY ── */
+.display{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(56px,9vw,120px);
+  font-weight:900;
+  line-height:0.95;
+  letter-spacing:-0.02em;
+}
+.headline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,64px);
+  font-weight:700;
+  line-height:1.0;
+}
+.subhead{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,3vw,36px);
+  font-weight:700;
+  line-height:1.2;
+}
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--primary);
+  margin-bottom:16px;
+  display:block;
+}
+.body-lg{
+  font-size:clamp(15px,1.5vw,18px);
+  line-height:1.7;
+  color:var(--fg-muted);
+}
+.body-sm{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--fg-muted);
+}
+
+/* ── GRADIENT GOLD TEXT ── */
+.gold{
+  background:linear-gradient(135deg,hsl(43 40% 56%),hsl(43 50% 70%),hsl(43 40% 56%));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-style:italic;
+}
+
+/* ── GOLD LINE ── */
+.gold-line{
+  height:2px;
+  background:linear-gradient(90deg,transparent,hsl(43 40% 56%),transparent);
+  margin:0 auto;
+}
+
+/* ── BG VARIANTS ── */
+.bg-dark{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%)}
+.bg-card{background:var(--card)}
+.bg-green{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%)}
+.bg-dot-gold{
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes countUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.anim{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.anim.left{transform:translateX(-40px)}
+.anim.right{transform:translateX(40px)}
+.anim.visible{opacity:1;transform:none}
+.anim.scale{transform:scaleX(0);transform-origin:left;transition:transform .9s ease}
+.anim.scale.visible{transform:scaleX(1)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* ── CARD ── */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  transition:border-color .25s;
+}
+.card:hover{border-color:rgba(200,151,58,.4)}
+
+/* ── ICON CIRCLE ── */
+.icon-circle{
+  width:56px;height:56px;
+  border-radius:50%;
+  border:2px solid var(--primary);
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ── ICON BOX ── */
+.icon-box{
+  width:48px;height:48px;border-radius:var(--radius);
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-bottom:20px;
+}
+
+/* ── PLACEHOLDER IMAGE ── */
+.photo-placeholder{
+  background:var(--muted);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;
+  color:var(--fg-muted);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.photo-placeholder svg{opacity:.4}
+
+/* ── CHECK ICON ── */
+.check{
+  width:16px;height:16px;flex-shrink:0;
+  color:var(--primary);margin-top:2px;
+}
+
+/* ─────────────────────────────────────────
+   01 HERO
+───────────────────────────────────────── */
+#hero{
+  background:var(--bg);
+  flex-direction:column;
+  text-align:center;
+}
+#hero .dot-overlay{
+  position:absolute;inset:0;
+  opacity:.03;
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+#hero .hero-inner{position:relative;z-index:2}
+#hero .hero-inner .eyebrow{margin-bottom:24px}
+#hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(60px,10vw,130px);line-height:1;letter-spacing:-.02em}
+#hero .dtx{font-size:clamp(60px,10vw,130px);font-style:italic;font-weight:700;font-family:'Playfair Display',serif}
+#hero .sub-tag{
+  font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--primary);margin-top:24px;
+}
+#hero .hero-logo{
+  display:block;
+  max-width:220px;
+  margin:0 auto 40px;
+  border-radius:12px;
+}
+#hero .chevron-wrap{margin-top:64px}
+#hero .chevron{
+  display:block;
+  margin:0 auto;
+  width:32px;height:32px;
+  animation:bounce 1.5s ease-in-out infinite;
+  color:var(--primary);
+}
+#hero .hero-cta{
+  display:inline-block;
+  margin-top:36px;
+  padding:14px 32px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  border-radius:100px;
+  transition:background .2s,color .2s;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+#hero .hero-cta:hover{background:var(--primary);color:var(--primary-fg)}
+/* hero entrance animation */
+#hero .hero-inner{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both}
+#hero .chevron-wrap{animation:fadeIn 1s .8s both}
+
+/* ─────────────────────────────────────────
+   02 WHO WE ARE
+───────────────────────────────────────── */
+#who{padding-bottom:60px}
+#who .who-text{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 56px;
+}
+#who .gold-line{margin:20px auto 28px}
+
+/* Carousel */
+.carousel-wrap{position:relative;width:100%;overflow:hidden}
+.carousel-track{
+  display:flex;
+  gap:16px;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.carousel-slide{
+  flex:0 0 calc(33.333% - 11px);
+  aspect-ratio:4/3;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--muted);
+  border:1px solid var(--border);
+  position:relative;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  display:flex;
+  gap:10px;
+  color:var(--fg-muted);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.carousel-slide img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.carousel-slide svg{opacity:.35;position:relative;z-index:1}
+.carousel-slide span{position:relative;z-index:1}
+.carousel-nav{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-top:28px;
+}
+.carousel-btn{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--fg);
+  transition:border-color .2s,background .2s;
+}
+.carousel-btn:hover{border-color:var(--primary);background:var(--muted)}
+.carousel-dots{display:flex;gap:8px;align-items:center}
+.carousel-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border);
+  transition:background .2s,transform .2s;
+  cursor:pointer;border:none;padding:0;
+}
+.carousel-dot.active{background:var(--primary);transform:scale(1.4)}
+@media(max-width:700px){
+  .carousel-slide{flex:0 0 calc(100% - 0px)}
+}
+
+/* ─────────────────────────────────────────
+   03 STATS + PILLARS
+───────────────────────────────────────── */
+#stats{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%)}
+#stats .green-glow{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,hsl(150 32% 20%) 0%,hsl(150 32% 30%) 100%);
+  opacity:.1;
+}
+#stats .stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:48px;
+  text-align:center;
+  width:100%;max-width:1000px;
+}
+.stat-big{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,6vw,80px);
+  font-weight:700;
+  line-height:1;
+}
+.stat-label{
+  font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg-muted);margin-top:12px;
+}
+/* Pillars */
+#stats .pillars-divider{
+  width:100%;max-width:1000px;
+  height:1px;background:var(--border);
+  margin:56px 0 48px;
+}
+#stats .pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  width:100%;max-width:1000px;
+}
+.pillar-card{
+  background:var(--card);
+  padding:36px 32px;
+  border-top:2px solid var(--border);
+  transition:border-color .25s;
+}
+.pillar-card:first-child{border-top-color:var(--primary)}
+.pillar-card:hover{border-top-color:var(--primary)}
+.pillar-num{
+  font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--primary);margin-bottom:12px;
+}
+.pillar-name{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;margin-bottom:12px;
+}
+.pillar-body{font-size:14px;color:var(--fg-muted);line-height:1.7}
+
+/* Nav dots */
+#navDots{
+  position:fixed;
+  top:50%;right:20px;
+  transform:translateY(-50%);
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+.nav-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);
+  border:none;cursor:pointer;padding:0;
+  transition:background .25s,transform .25s;
+}
+.nav-dot.active{background:var(--primary);transform:scale(1.4)}
+@media(max-width:600px){#navDots{display:none}}
+
+/* ─────────────────────────────────────────
+   04 PROBLEM
+───────────────────────────────────────── */
+#problem{background:var(--card)}
+#problem .problem-lead{
+  max-width:720px;margin:0 auto;
+  font-size:clamp(20px,2.8vw,32px);line-height:1.55;
+  color:var(--fg);font-weight:400;text-align:center;
+}
+#problem .impact-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-top:56px;width:100%;
+}
+.impact-card{
+  background:var(--bg);padding:36px 28px;
+  border-top:2px solid var(--border);
+  transition:border-color .25s;
+}
+.impact-card:hover{border-top-color:var(--primary)}
+.impact-stat{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4vw,64px);font-weight:700;line-height:1;margin-bottom:6px;
+}
+.impact-lbl{
+  font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--fg-muted);margin-bottom:20px;display:block;
+}
+.impact-body{font-size:14px;color:var(--fg-muted);line-height:1.7;margin-top:16px}
+/* Bar visual */
+.vis-bar-wrap{height:8px;background:var(--border);border-radius:4px}
+.vis-bar{height:100%;border-radius:4px;background:var(--primary);width:0;transition:width 1.2s ease .3s}
+.anim.visible .vis-bar{width:73%}
+/* Ring visual */
+.vis-ring{display:block;margin:4px 0}
+.ring-fill{transition:stroke-dashoffset 1.2s ease .3s}
+/* Trend bars */
+.vis-trend{display:flex;align-items:flex-end;gap:5px;height:44px;margin:4px 0}
+.vis-trend-bar{flex:1;border-radius:2px 2px 0 0;background:var(--border);height:20%;transition:height 1s ease,background 1s ease}
+.anim.visible .vis-trend-bar.t1{height:20%;background:var(--primary)}
+.anim.visible .vis-trend-bar.t2{height:45%;background:var(--primary);transition-delay:.1s}
+.anim.visible .vis-trend-bar.t3{height:70%;background:var(--primary);transition-delay:.2s}
+.anim.visible .vis-trend-bar.t4{height:100%;background:var(--primary);transition-delay:.3s}
+@media(max-width:700px){#problem .impact-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────
+   05 WHERE YOUR BRAND SHOWS UP (flip cards)
+───────────────────────────────────────── */
+#activations{background:var(--bg)}
+#activations .flip-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:52px;
+  width:100%;
+}
+/* 3D flip card */
+.flip-card{
+  perspective:1200px;
+  cursor:pointer;
+  min-height:320px;
+}
+.flip-inner{
+  position:relative;
+  width:100%;height:100%;
+  min-height:320px;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+/* Front */
+.flip-front{
+  background:var(--muted);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;
+  transition:border-color .25s;
+}
+.flip-card:hover .flip-front{border-color:rgba(200,151,58,.4)}
+.flip-front-img{
+  flex:1;
+  background:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  color:var(--fg-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  position:relative;overflow:hidden;
+  min-height:200px;
+}
+.flip-front-img img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+.flip-front-img svg{position:relative;z-index:1;opacity:.35}
+.flip-front-img span{position:relative;z-index:1}
+.flip-front-footer{
+  padding:20px 24px;
+  background:var(--card);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.flip-front-name{
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+}
+.flip-hint{
+  font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);display:flex;align-items:center;gap:6px;flex-shrink:0;
+}
+.flip-hint svg{color:var(--primary)}
+/* Back */
+.flip-back{
+  background:var(--deep-green,hsl(150 32% 20%));
+  border:1px solid rgba(200,151,58,.25);
+  transform:rotateY(180deg);
+  display:flex;flex-direction:column;
+  padding:32px;
+}
+.flip-back-tag{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:14px;
+}
+.flip-back-title{
+  font-family:'Playfair Display',serif;font-size:24px;font-weight:700;
+  margin-bottom:16px;line-height:1.2;
+}
+.flip-back-body{
+  font-size:14px;line-height:1.75;color:rgba(245,240,230,.75);flex:1;
+}
+.flip-back-close{
+  margin-top:20px;font-size:11px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+}
+@media(max-width:900px){#activations .flip-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────
+   06 HOW THE DAY UNFOLDS
+───────────────────────────────────────── */
+#how{background:var(--card)}
+#how .steps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+  text-align:center;
+  margin-top:48px;
+  position:relative;
+}
+#how .connector{
+  position:absolute;
+  top:40px;left:0;right:0;
+  height:1px;background:var(--border);
+}
+#how .step-icon{
+  position:relative;z-index:2;
+  margin:0 auto 20px;
+}
+.step-num{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:6px;
+}
+.step-title{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:700;margin-bottom:10px;
+}
+
+/* ─────────────────────────────────────────
+   07 GALLERY
+───────────────────────────────────────── */
+/* ── MOMENTS GALLERY ── */
+#gallery,#gallery-alt{background:var(--bg)}
+.moments-grid{display:grid;gap:2px;margin-top:48px;width:100%}
+.moments-2x2{grid-template-columns:repeat(2,1fr)}
+.moments-1x4{grid-template-columns:repeat(4,1fr)}
+.moment-tile{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--card);border-top:2px solid var(--border);
+  transition:border-color .25s;height:360px;
+}
+.moments-1x4 .moment-tile{height:420px}
+.moment-tile:hover{border-top-color:var(--primary)}
+.moment-ghost{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,52px);font-weight:900;
+  color:var(--fg);opacity:.1;text-align:center;padding:20px;z-index:1;
+  pointer-events:none;line-height:1.1;transition:opacity .35s;
+}
+.moment-tile:hover .moment-ghost{opacity:.04}
+.moment-scroll{
+  position:absolute;inset:0;z-index:2;overflow:hidden;
+  opacity:0;transition:opacity .4s;
+}
+.moment-tile:hover .moment-scroll{opacity:1}
+.moment-strip{
+  display:flex;flex-direction:column;
+  animation:scrollStrip 14s linear infinite;
+}
+.moment-strip img{width:100%;height:360px;object-fit:cover;flex-shrink:0;display:block}
+.moments-1x4 .moment-strip img{height:420px}
+.moment-strip .ph-slide{
+  width:100%;height:360px;flex-shrink:0;
+  background:var(--muted);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  color:var(--fg-muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+}
+.moments-1x4 .moment-strip .ph-slide{height:420px}
+.moment-label{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:16px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
+  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);opacity:0;transition:opacity .35s;
+}
+.moment-tile:hover .moment-label{opacity:1}
+@keyframes scrollStrip{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@media(max-width:700px){.moments-2x2,.moments-1x4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.moments-2x2,.moments-1x4{grid-template-columns:1fr}}
+
+
+/* ─────────────────────────────────────────
+   08 VALUE
+───────────────────────────────────────── */
+#value{background:var(--card)}
+#value .value-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  margin-top:48px;
+}
+#value .value-row{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  padding:28px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  transition:border-color .25s;
+}
+#value .value-row:hover{border-color:rgba(200,151,58,.4)}
+#value .value-row.left-anim{transform:translateX(-40px)}
+#value .value-row.right-anim{transform:translateX(40px)}
+
+/* ─────────────────────────────────────────
+   09 PACKAGES
+───────────────────────────────────────── */
+#packages{background:linear-gradient(180deg,hsl(0 0% 5%) 0%,hsl(0 0% 8%) 100%);padding-bottom:80px}
+#packages .pkg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:48px;
+}
+.pkg-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.pkg-card.featured{
+  border-color:var(--primary);
+  box-shadow:0 0 40px -12px rgba(200,151,58,.3);
+}
+.pkg-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--primary);color:var(--primary-fg);
+  font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:5px 16px;border-radius:100px;white-space:nowrap;
+}
+.pkg-tier{
+  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg-muted);
+}
+.pkg-name{
+  font-family:'Playfair Display',serif;
+  font-size:32px;font-weight:700;margin-top:6px;
+}
+.pkg-features{
+  margin-top:24px;display:flex;flex-direction:column;gap:12px;
+}
+.pkg-feature{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--fg-muted);line-height:1.4;
+}
+
+/* ─────────────────────────────────────────
+   10 CONTACT
+───────────────────────────────────────── */
+#contact{background:var(--card)}
+#contact .dot-overlay{
+  position:absolute;inset:0;
+  opacity:.02;
+  background-image:radial-gradient(circle at 1px 1px,hsl(43 40% 56%) 1px,transparent 0);
+  background-size:40px 40px;
+}
+#contact .contact-links{
+  display:flex;flex-wrap:wrap;
+  gap:32px;justify-content:center;
+  margin-top:48px;
+}
+.contact-link{
+  display:flex;align-items:center;gap:10px;
+  font-size:16px;
+  transition:color .2s;
+}
+.contact-link:hover{color:var(--primary)}
+.contact-link svg{color:var(--primary)}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:900px){
+  #stats .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  #stats .pillars-grid{grid-template-columns:1fr}
+  #bring .cards-grid{grid-template-columns:1fr}
+  #how .steps-grid{grid-template-columns:1fr 1fr}
+  #how .connector{display:none}
+  #packages .pkg-grid{grid-template-columns:1fr}
+}
+/* Touch devices have no hover, so reveal the photo strips by default */
+@media(hover:none){
+  .moment-scroll{opacity:1}
+  .moment-ghost{opacity:0}
+  .moment-label{opacity:1}
+}
+@media(max-width:560px){
+  .snap-section{padding:80px 16px}
+  #stats .stats-grid{grid-template-columns:1fr 1fr}
+  #how .steps-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+<nav id="navDots"></nav>
+<div class="snap-container" id="snapContainer">
+
+<!-- ──────────────────────────────────────
+  01 HERO
+────────────────────────────────────────-->
+<section class="snap-section bg-dark" id="hero">
+  <div class="dot-overlay"></div>
+  <div class="hero-inner">
+    <img src="assets/so2026/logo-group.png" alt="The Group DTX" class="hero-logo" onerror="this.style.display='none'" />
+    <span class="eyebrow">Dallas, Texas &middot; Year Four</span>
+    <h1>SUMMER<br><span class="gold">OLYMPICS</span></h1>
+    <p class="sub-tag">2026</p>
+    <div class="gold-line" style="width:128px;margin:28px auto"></div>
+    <p class="body-lg" style="max-width:480px;margin:0 auto">A full day of team competition, built for the community that keeps selling out The Group DTX.</p>
+    <a href="#packages" class="hero-cta">Become a Sponsor</a>
+    <div class="chevron-wrap">
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  02 WHO WE ARE / THE EVENT
+────────────────────────────────────────-->
+<section class="snap-section" id="who">
+  <div class="inner">
+    <div class="who-text anim">
+      <span class="eyebrow">The Event</span>
+      <h2 class="headline">A Full Day of <span class="gold">Competition</span></h2>
+      <div class="gold-line" style="width:80px"></div>
+      <p class="body-lg" style="margin-bottom:16px">Summer Olympics is The Group DTX's flagship field day, now in its fourth year. Teams compete across a full day of games built for adults who want to play hard and laugh harder, all leading up to jerseys, medals, and a closing celebration that brings the whole group back together.</p>
+      <p class="body-lg">This isn't a generic corporate field day. It's the same community that sells out our trivia nights, mixers, and gallery events, brought outside for a full day of team competition, culture, and connection. <strong style="color:var(--fg)">Your brand shows up where the community already is.</strong></p>
+    </div>
+
+    <div class="carousel-wrap anim d2">
+      <div class="carousel-track" id="whoCarousel">
+        <div class="carousel-slide">
+          <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/so2026/so25-03.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/so2026/so25-04.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/so2026/so25-06.jpg" alt="Summer Olympics 2025 event photo" onerror="this.style.display='none'">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Event Photo</span>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="whoPrev" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="carousel-dots" id="whoDots"></div>
+        <button class="carousel-btn" id="whoNext" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  03 STATS + PILLARS
+────────────────────────────────────────-->
+<section class="snap-section" id="stats" style="align-items:center;flex-direction:column;padding-top:100px;padding-bottom:80px">
+  <div class="green-glow"></div>
+  <div style="position:relative;z-index:2;width:100%;max-width:1000px">
+    <span class="eyebrow anim" style="text-align:center;display:block;margin-bottom:56px">By The Numbers</span>
+    <div class="stats-grid">
+      <div class="anim" style="text-align:center">
+        <div class="stat-big gold" data-target="150" data-suffix="+">150+</div>
+        <div class="stat-label">Events Produced</div>
+      </div>
+      <div class="anim d1" style="text-align:center">
+        <div class="stat-big gold" data-target="76" data-suffix="K">76K</div>
+        <div class="stat-label">Social Views</div>
+      </div>
+      <div class="anim d2" style="text-align:center">
+        <div class="stat-big gold" data-target="11" data-suffix="K+">11K+</div>
+        <div class="stat-label">Attendees Served</div>
+      </div>
+      <div class="anim d3" style="text-align:center">
+        <div class="stat-big gold">3</div>
+        <div class="stat-label">Years of Sold-Out Events</div>
+      </div>
+    </div>
+
+    <div class="pillars-divider anim d2"></div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card anim d2">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Competition</div>
+        <div class="pillar-body">Team sports bring out a different energy than a mixer or a happy hour. People show up ready to compete, and that competitive energy is what gets strangers talking.</div>
+      </div>
+      <div class="pillar-card anim d3">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Community</div>
+        <div class="pillar-body">Summer Olympics pulls from the same community that's sold out three years of trivia nights, mixers, and gallery events. It's not a new audience. It's our audience, outside.</div>
+      </div>
+      <div class="pillar-card anim d4">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Culture</div>
+        <div class="pillar-body">Team names, music, the whole day carries the same cultural DNA as everything else we build. It's why the day feels different from a standard corporate field day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  04 PROBLEM
+────────────────────────────────────────-->
+<section class="snap-section" id="problem" style="flex-direction:column;align-items:center;padding-top:100px;padding-bottom:80px">
+  <div class="inner" style="display:flex;flex-direction:column;align-items:center">
+    <span class="eyebrow anim">Why This Reaches People</span>
+    <p class="problem-lead anim d1">
+      Most sponsors get a booth at an event where attendees came to network, not connect.
+      Summer Olympics is different: <strong style="color:var(--fg)">people show up ready to play, and that changes how a brand lands.</strong>
+    </p>
+    <div class="gold-line anim scale d2" style="width:160px;margin:36px auto"></div>
+    <div class="impact-grid">
+      <div class="impact-card anim d2">
+        <div class="impact-stat gold">73%</div>
+        <span class="impact-lbl">of attendees arrive alone</span>
+        <div class="vis-bar-wrap"><div class="vis-bar"></div></div>
+        <div class="impact-body">That's a room full of people looking for a reason to talk to each other. Your activation becomes that reason.</div>
+      </div>
+      <div class="impact-card anim d3">
+        <div class="impact-stat gold">60%</div>
+        <span class="impact-lbl">of event memories fade within 2 weeks</span>
+        <svg class="vis-ring" width="48" height="48" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="var(--border)" stroke-width="4"/>
+          <circle class="ring-fill" cx="24" cy="24" r="18" fill="none" stroke="hsl(43 40% 56%)"
+            stroke-width="4" stroke-linecap="round"
+            stroke-dasharray="113" stroke-dashoffset="113"
+            style="transform:rotate(-90deg);transform-origin:center"/>
+        </svg>
+        <div class="impact-body">A logo on a banner fades faster. A brand tied to real competition and connection sticks.</div>
+      </div>
+      <div class="impact-card anim d4">
+        <div class="impact-stat gold">4x</div>
+        <span class="impact-lbl">more likely to return</span>
+        <div class="vis-trend">
+          <div class="vis-trend-bar t1"></div>
+          <div class="vis-trend-bar t2"></div>
+          <div class="vis-trend-bar t3"></div>
+          <div class="vis-trend-bar t4"></div>
+        </div>
+        <div class="impact-body">Sponsors who show up here don't get a one-day impression. They get a returning audience, year after year.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  05 WHERE YOUR BRAND SHOWS UP
+────────────────────────────────────────-->
+<section class="snap-section" id="activations">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">What Sponsors Get</span>
+      <h2 class="headline">Where Your Brand <span class="gold">Shows Up</span></h2>
+      <p class="body-sm anim d1" style="max-width:560px;margin:16px auto 0">Tap any card to see what's included. Every activation is built to put your brand in front of a community that's already showing up.</p>
+    </div>
+    <div class="flip-grid">
+
+      <!-- Card 1: On the Field -->
+      <div class="flip-card anim d1">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-img">
+              <img src="assets/so2026/so25-07.jpg" alt="On the field at Summer Olympics"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/>
+                </svg>
+                <span style="font-size:12px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase">Photo Coming Soon</span>
+              </span>
+            </div>
+            <div class="flip-front-footer">
+              <div class="flip-front-name">On the Field</div>
+              <div class="flip-hint">Tap to learn more</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">On-Site Presence</div>
+            <div class="flip-back-title">On the Field</div>
+            <div class="flip-back-body">Jersey and bib placement across every team. On-field signage where the competition happens. Branded stations attendees interact with throughout the day. Product in athletes' hands from first whistle to last.</div>
+            <div class="flip-back-close">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: In the Content -->
+      <div class="flip-card anim d2">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-img">
+              <img src="assets/so2026/so25-08.jpg" alt="Content capture at Summer Olympics"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
+                  <rect x="2" y="7" width="15" height="10" rx="1"/><path d="M17 9l5-2v10l-5-2"/>
+                </svg>
+                <span style="font-size:12px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase">Photo Coming Soon</span>
+              </span>
+            </div>
+            <div class="flip-front-footer">
+              <div class="flip-front-name">In the Content</div>
+              <div class="flip-hint">Tap to learn more</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Content &amp; Reach</div>
+            <div class="flip-back-title">In the Content</div>
+            <div class="flip-back-body">A recap reel and photo set from the day. IG story and post mentions across the build-up and the event itself. Your logo in the event graphics going out to our list.</div>
+            <div class="flip-back-close">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: In the Room -->
+      <div class="flip-card anim d3">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-img">
+              <img src="assets/so2026/so25-09.jpg" alt="Closing celebration at Summer Olympics"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;gap:12px">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="1.5">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span style="font-size:12px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase">Photo Coming Soon</span>
+              </span>
+            </div>
+            <div class="flip-front-footer">
+              <div class="flip-front-name">In the Room</div>
+              <div class="flip-hint">Tap to learn more</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">On-Site Access</div>
+            <div class="flip-back-title">In the Room</div>
+            <div class="flip-back-body">A named presence at the closing celebration. Direct access to a Dallas community of young Black professionals. Sampling and activation space to put your product directly in people's hands.</div>
+            <div class="flip-back-close">Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  06 HOW THE DAY UNFOLDS
+────────────────────────────────────────-->
+<section class="snap-section" id="how">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Run of Show</span>
+      <h2 class="headline">How the <span class="gold">Day</span> Unfolds</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="connector"></div>
+      <div class="anim d1">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
+        <div class="step-num">01</div>
+        <div class="step-title">Arrival &amp; Registration</div>
+        <p class="body-sm">Teams check in and get jerseys as the energy starts building. Your brand can be the first thing they see, on badges, signage, or in the welcome swag.</p>
+      </div>
+      <div class="anim d2">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M4 22V4a2 2 0 0 1 2-2h11l-1.5 5L18 12H6"/>
+          </svg>
+        </div>
+        <div class="step-num">02</div>
+        <div class="step-title">Opening Ceremony</div>
+        <p class="body-sm">Teams are introduced and the day officially kicks off. This is where a sponsor gets a named mention and an MC shoutout in front of the full crowd.</p>
+      </div>
+      <div class="anim d3">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <div class="step-num">03</div>
+        <div class="step-title">Team Competitions</div>
+        <p class="body-sm">The events run back to back with downtime between heats for people to talk. Your branded station or product lives right on the field, all day.</p>
+      </div>
+      <div class="anim d4">
+        <div class="icon-circle step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+          </svg>
+        </div>
+        <div class="step-num">04</div>
+        <div class="step-title">Closing Celebration &amp; Medals</div>
+        <p class="body-sm">Medals go out and the day wraps with everyone together. This is prime space for a branded moment and photo ops with the winning teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  07 GALLERY / PROOF
+────────────────────────────────────────-->
+<section class="snap-section" id="gallery" style="flex-direction:column;padding-top:80px;padding-bottom:80px">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Proof</span>
+      <h2 class="headline">2025 in <span class="gold">Motion</span></h2>
+      <p class="body-sm anim d1" style="max-width:480px;margin:12px auto 0">Real photos from the 2025 edition.</p>
+    </div>
+    <div class="moments-grid moments-2x2">
+
+      <div class="moment-tile anim d1">
+        <div class="moment-ghost">Team Competitions</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 team competition">
+            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 team competition">
+            <img src="assets/so2026/so25-03.jpg" alt="Summer Olympics 2025 team competition">
+            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 team competition">
+            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 team competition">
+            <img src="assets/so2026/so25-03.jpg" alt="Summer Olympics 2025 team competition">
+          </div>
+        </div>
+        <div class="moment-label">Team Competitions</div>
+      </div>
+
+      <div class="moment-tile anim d2">
+        <div class="moment-ghost">Medals &amp; Closing</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="assets/so2026/so25-04.jpg" alt="Summer Olympics 2025 medal ceremony">
+            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 closing celebration">
+            <img src="assets/so2026/so25-06.jpg" alt="Summer Olympics 2025 closing celebration">
+            <img src="assets/so2026/so25-04.jpg" alt="Summer Olympics 2025 medal ceremony">
+            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 closing celebration">
+            <img src="assets/so2026/so25-06.jpg" alt="Summer Olympics 2025 closing celebration">
+          </div>
+        </div>
+        <div class="moment-label">Medals &amp; Closing</div>
+      </div>
+
+      <div class="moment-tile anim d3">
+        <div class="moment-ghost">The Community</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="assets/so2026/so25-07.jpg" alt="Summer Olympics 2025 community">
+            <img src="assets/so2026/so25-08.jpg" alt="Summer Olympics 2025 community">
+            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 community">
+            <img src="assets/so2026/so25-07.jpg" alt="Summer Olympics 2025 community">
+            <img src="assets/so2026/so25-08.jpg" alt="Summer Olympics 2025 community">
+            <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 community">
+          </div>
+        </div>
+        <div class="moment-label">The Community</div>
+      </div>
+
+      <div class="moment-tile anim d4">
+        <div class="moment-ghost">On-Site Activations</div>
+        <div class="moment-scroll">
+          <div class="moment-strip">
+            <img src="assets/so2026/so25-09.jpg" alt="Summer Olympics 2025 on-site activation">
+            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 on-site activation">
+            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 on-site activation">
+            <img src="assets/so2026/so25-09.jpg" alt="Summer Olympics 2025 on-site activation">
+            <img src="assets/so2026/so25-02.jpg" alt="Summer Olympics 2025 on-site activation">
+            <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 on-site activation">
+          </div>
+        </div>
+        <div class="moment-label">On-Site Activations</div>
+      </div>
+
+    </div>
+
+    <!-- Proof reels -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:40px">
+      <a href="https://www.instagram.com/reel/CwOUlMFB71o/" target="_blank" rel="noopener" class="card anim d1" style="padding:0;overflow:hidden;display:block">
+        <div style="position:relative;aspect-ratio:4/5;background:var(--muted)">
+          <img src="assets/so2026/so25-01.jpg" alt="Summer Olympics 2025 highlight reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="hsl(43 40% 56%)" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+        <div style="padding:20px 24px">
+          <div class="flip-front-name" style="font-size:16px">2025 Highlights</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/C-qILituuKQ/" target="_blank" rel="noopener" class="card anim d2" style="padding:0;overflow:hidden;display:block">
+        <div style="position:relative;aspect-ratio:4/5;background:var(--muted)">
+          <img src="assets/so2026/so25-05.jpg" alt="Summer Olympics 2025 game day reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="hsl(43 40% 56%)" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+        <div style="padding:20px 24px">
+          <div class="flip-front-name" style="font-size:16px">Game Day Energy</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DO6SeVrDq2k/" target="_blank" rel="noopener" class="card anim d3" style="padding:0;overflow:hidden;display:block">
+        <div style="position:relative;aspect-ratio:4/5;background:var(--muted)">
+          <img src="assets/so2026/so25-09.jpg" alt="Summer Olympics 2025 closing celebration reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="hsl(43 40% 56%)" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+        <div style="padding:20px 24px">
+          <div class="flip-front-name" style="font-size:16px">Closing Celebration</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Returning partners -->
+    <div class="anim d4" style="margin-top:40px;padding:24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:36px">
+      <img src="assets/so2026/logo-magna.png" alt="Magna, hydration partner" style="height:32px;width:auto;filter:grayscale(70%);opacity:.85" onerror="this.style.display='none'">
+      <img src="assets/so2026/logo-vio2.png" alt="VIO2 Water" style="height:32px;width:auto;filter:grayscale(70%);opacity:.85" onerror="this.style.display='none'">
+      <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:18px;color:var(--fg-muted)">Express Medals</span>
+      <img src="assets/so2026/logo-dove.png" alt="Dove Construction" style="height:32px;width:auto;filter:grayscale(70%);opacity:.85" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  08 VALUE
+────────────────────────────────────────-->
+<section class="snap-section" id="value">
+  <div class="inner">
+    <div class="anim" style="text-align:center;margin-bottom:0">
+      <span class="eyebrow">The Value</span>
+      <h2 class="headline">Why Partner With <span class="gold">Us</span></h2>
+    </div>
+    <div class="value-list">
+      <div class="value-row anim left d1">
+        <div class="icon-circle" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Built-In Audience</h3>
+          <p class="body-sm">Three years of sold-out events and 11K+ attendees served puts your brand in front of an established, engaged community, not a cold list.</p>
+        </div>
+      </div>
+      <div class="value-row anim right d2">
+        <div class="icon-circle" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Real Engagement</h3>
+          <p class="body-sm">76K social views across our platforms means your presence on-site becomes content that keeps working after the day ends.</p>
+        </div>
+      </div>
+      <div class="value-row anim left d3">
+        <div class="icon-circle" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Multi-Touch Visibility</h3>
+          <p class="body-sm">Your brand shows up on the field, in the content, and in the room, not just on a step-and-repeat banner.</p>
+        </div>
+      </div>
+      <div class="value-row anim right d4">
+        <div class="icon-circle" style="margin-bottom:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(43 40% 56%)" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px">Partnership That Fits</h3>
+          <p class="body-sm">Whether it's product, food and drink, or cash, we build the ask around what makes sense for your brand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  09 PACKAGES
+────────────────────────────────────────-->
+<section class="snap-section" id="packages">
+  <div class="inner">
+    <div class="anim" style="text-align:center">
+      <span class="eyebrow">Partnership Packages</span>
+      <h2 class="headline">Choose Your <span class="gold">Level</span></h2>
+    </div>
+    <div class="pkg-grid">
+
+      <!-- Silver -->
+      <div class="pkg-card anim d1">
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="pkg-tier">In-Kind Partner</div>
+          <div class="pkg-name">Silver</div>
+          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
+        </div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Product or gear on the field
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Logo on event signage
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            One social media mention
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Team-photo placement
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Post-event recap photos
+          </li>
+        </ul>
+      </div>
+
+      <!-- Gold (featured) -->
+      <div class="pkg-card featured anim d2">
+        <div class="pkg-badge">Most Popular</div>
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="pkg-tier">Food, Drink or Cash Partner</div>
+          <div class="pkg-name">Gold</div>
+          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
+        </div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Everything in Silver, plus:
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Branded station or sampling space on-site
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Logo on team jerseys or bibs
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Named presence at the closing celebration
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Social campaign across the build-up and event day
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Spot in the event recap video
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Co-branded signage
+          </li>
+        </ul>
+      </div>
+
+      <!-- Diamond -->
+      <div class="pkg-card anim d3">
+        <div style="text-align:center;margin-bottom:24px">
+          <div class="pkg-tier">Category &amp; Title Partner</div>
+          <div class="pkg-name">Diamond</div>
+          <div class="gold-line" style="width:64px;margin:16px auto 0"></div>
+        </div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Everything in Gold, plus:
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Title billing on the event ("Summer Olympics 2026, presented by...")
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Category exclusivity
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Logo on all event graphics and the official flyer
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Dedicated MC callouts throughout the day
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Custom-branded competition or trophy
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Professional photo and video assets you can use
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Co-branded merch
+          </li>
+          <li class="pkg-feature">
+            <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Post-event recap report
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────
+  10 CONTACT
+────────────────────────────────────────-->
+<section class="snap-section" id="contact">
+  <div class="dot-overlay"></div>
+  <div class="inner-sm" style="position:relative;z-index:2">
+    <h2 class="headline anim" style="font-size:clamp(40px,7vw,90px)">
+      Let's Talk <span class="gold">Partnership</span>.
+    </h2>
+    <div class="gold-line anim d1" style="width:128px;margin:36px auto"></div>
+    <p class="body-lg anim d2" style="margin-bottom:0">
+      Ready to put your brand on the field for Summer Olympics 2026? Reply to the email that sent you here, or reach out directly below.
+    </p>
+    <div class="contact-links anim d3">
+      <a href="https://www.instagram.com/thegroupdtx" target="_blank" rel="noopener" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @thegroupdtx
+      </a>
+      <a href="mailto:info.thegroupdtx@gmail.com" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info.thegroupdtx@gmail.com
+      </a>
+      <a href="tel:+14049939944" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.1 6.1l.82-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        (404) 993-9944
+      </a>
+    </div>
+    <p class="anim d4" style="margin-top:64px;font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--fg-muted)">
+      Kitan Lawson, CEO, The Group DTX
+    </p>
+  </div>
+</section>
+
+</div><!-- end snap-container -->
+
+<script>
+const container = document.getElementById('snapContainer');
+const progressBar = document.getElementById('progressBar');
+
+// ── All sections for nav dots
+const sections = Array.from(document.querySelectorAll('.snap-section'));
+const navDotsEl = document.getElementById('navDots');
+
+// Build nav dots
+sections.forEach((sec, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'nav-dot';
+  dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+  dot.addEventListener('click', () => {
+    sec.scrollIntoView({ behavior: 'smooth' });
+  });
+  navDotsEl.appendChild(dot);
+});
+const dots = navDotsEl.querySelectorAll('.nav-dot');
+
+// ── Progress bar + active dot
+function onScroll() {
+  const scrollTop = container.scrollTop;
+  const scrollHeight = container.scrollHeight - container.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+
+  // Active dot: which section is most visible
+  const mid = scrollTop + container.clientHeight / 2;
+  let activeIdx = 0;
+  sections.forEach((sec, i) => {
+    if (sec.offsetTop <= mid) activeIdx = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+}
+container.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── Scroll reveal
+const animEls = document.querySelectorAll('.anim');
+const revealIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      const ring = e.target.querySelector('.ring-fill');
+      if (ring) setTimeout(() => { ring.style.strokeDashoffset = '45'; }, 300);
+    }
+  });
+}, { root: container, threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+animEls.forEach(el => revealIo.observe(el));
+
+// ── Count-up for stats
+function countUp(el, target, suffix) {
+  let start = 0;
+  const steps = 60, interval = 1400 / steps, inc = target / steps;
+  const timer = setInterval(() => {
+    start = Math.min(start + inc, target);
+    el.textContent = Math.floor(start) + suffix;
+    if (start >= target) clearInterval(timer);
+  }, interval);
+}
+let counted = false;
+const statsIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('[data-target]').forEach(el => {
+        countUp(el, parseInt(el.dataset.target), el.dataset.suffix);
+      });
+    }
+  });
+}, { root: container, threshold: 0.3 });
+statsIo.observe(document.getElementById('stats'));
+
+// ── Chevron scrolls to next slide
+document.querySelector('.chevron-wrap').style.cursor = 'pointer';
+document.querySelector('.chevron-wrap').addEventListener('click', () => {
+  document.getElementById('who').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ── Who We Are carousel
+(function() {
+  const track = document.getElementById('whoCarousel');
+  if (!track) return;
+  const slides = track.querySelectorAll('.carousel-slide');
+  const dotsWrap = document.getElementById('whoDots');
+  const perView = window.innerWidth <= 700 ? 1 : 3;
+  const total = slides.length;
+  let cur = 0;
+
+  // Build dots
+  const cdots = [];
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Photo ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+    cdots.push(d);
+  }
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    const slideW = slides[0].getBoundingClientRect().width + 16;
+    track.style.transform = 'translateX(-' + (cur * slideW) + 'px)';
+    cdots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  document.getElementById('whoNext').addEventListener('click', () => goTo(cur + 1));
+  document.getElementById('whoPrev').addEventListener('click', () => goTo(cur - 1));
+
+  // Auto-advance
+  setInterval(() => goTo(cur + 1), 4000);
+})();
+
+// ── Flip cards
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+</script>
+</body>
+</html>
